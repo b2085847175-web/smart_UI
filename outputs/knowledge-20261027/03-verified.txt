@@ -1,0 +1,247 @@
+- complementary:
+  - menu:
+    - menuitem "book 知识库管理" [expanded]:
+      - img "book":
+      - generic: 知识库管理
+    - menu:
+      - menuitem "商品管理":
+        - link "商品管理":
+          - /url: /product-config
+      - menuitem "商品知识库":
+        - link "商品知识库":
+          - /url: /product-knowledge
+      - menuitem "商品分组":
+        - link "商品分组":
+          - /url: /product-group
+      - menuitem "货品管理":
+        - link "货品管理":
+          - /url: /stock-config
+      - menuitem "货品知识库":
+        - link "货品知识库":
+          - /url: /stock-knowledge
+      - menuitem "店铺知识库":
+        - link "店铺知识库":
+          - /url: /shop-knowledge
+      - menuitem "场景知识库":
+        - link "场景知识库":
+          - /url: /scene
+      - menuitem "自定义知识库":
+        - link "自定义知识库":
+          - /url: /keyword
+    - menuitem "robot AI智能中心":
+      - img "robot":
+      - generic: AI智能中心
+    - menuitem "filter 策略管理":
+      - img "filter":
+      - generic: 策略管理
+    - menuitem "audit 质检中心":
+      - img "audit":
+      - generic: 质检中心
+    - menuitem "bar-chart VOC洞察分析":
+      - img "bar-chart":
+      - generic: VOC洞察分析
+    - menuitem "dashboard 数据概览":
+      - img "dashboard":
+      - generic: 数据概览
+    - menuitem "sync 设置":
+      - img "sync":
+      - generic: 设置
+    - menuitem "pay-circle 我的言值":
+      - img "pay-circle":
+      - generic: 我的言值
+    - menuitem "tags 关于我们":
+      - link "tags 关于我们":
+        - /url: /contact-us
+        - img "tags":
+        - text: 关于我们
+- banner
+- banner:
+  - img "logo"
+  - tablist:
+    - tab "场景知识库" [selected]
+  - tabpanel "场景知识库"
+  - img "heart":
+  - generic: "剩余言值: 0.0000"
+  - button "充值":
+    - generic: 充值
+  - img "search":
+  - textbox "全店铺搜索"
+  - img "file-text":
+  - generic: 使用文档
+  - img "down":
+  - combobox
+  - img "淘宝/天猫"
+  - generic "UI货品回归店铺B1_20260831_01"
+  - img "user":
+  - generic: 王景坤
+  - img "down":
+- main:
+  - combobox
+  - generic "场景名称"
+  - textbox "请输入内容": 常见付款场景说明
+  - button "close-circle":
+    - img "close-circle":
+  - img "search":
+  - button "file-text 操作日志":
+    - img "file-text":
+    - generic: 操作日志
+  - button "plus 订阅行业包":
+    - img "plus":
+    - generic: 订阅行业包
+  - generic: 全部分类 (1)
+  - generic: 购买咨询 (1)
+  - text: 更新时间排序
+  - img "down":
+  - generic: 常见付款场景说明
+  - generic: 行业通用
+  - img "热度"
+  - generic: "0"
+  - generic: 更新时间：
+  - generic: 2026-10-27 15:11
+  - generic: 场景描述：
+  - generic: 付款问题，包括未付款订单、拍错买多、重复付款、付款失败、交易关闭、货到付款、合并付款、如何付款
+  - generic: 问法示例：
+  - generic: 拍错了/买多了/怎么付款/能货到付款吗/付款失败了/付款了但显示交易关闭了/我重复付款了/能合并付款吗/能先用后付吗
+  - generic: 场景同步
+  - generic: 编辑问法示例
+  - generic: 新增知识
+  - generic: 满足条件
+  - generic: "关联商品:"
+  - generic: 已选择全部商品
+  - generic: "订单状态:"
+  - generic: 未下单、未付款、待发货(已付款)、待收货、未评价(已签收)、已评价、已关闭(已取消)
+  - generic: "生效时间:"
+  - generic: 长期有效
+  - generic: 支付方式与货到付款说明
+  - button "edit 编辑":
+    - img "edit":
+    - generic: 编辑
+  - button "delete 删除":
+    - img "delete":
+    - generic: 删除
+  - switch "开 关" [checked]:
+    - generic: 开
+    - generic: 关
+  - generic: 第1次
+  - text: 1. 店铺支持的支付方式以提交订单页/收银台展示为准，常见为支付宝、花呗、银行卡等线上支付。
+  - text: 2. 若提交订单页没有“货到付款”选项，说明该商品/地区暂不支持货到付款，请选择线上支付；支付成功后按页面时效发货。
+  - text: 3. 未付款订单超时会自动关闭，可重新下单；拍错/买多可在未发货前取消或联系客服；重复付款、付款失败可提供订单号协助核实。
+  - text: 4. 合并付款、先用后付等以平台页面是否展示为准。
+  - list:
+    - listitem: 共 1 条
+    - listitem "上一页":
+      - button "left" [disabled]:
+        - img "left":
+    - listitem "1":
+      - generic: "1"
+    - listitem "下一页":
+      - button "right" [disabled]:
+        - img "right":
+    - generic "页码":
+      - combobox "页码"
+      - generic "10 条/页"
+  - text: ©2026 深圳智简未来科技有限公司 | 官网：
+  - link "www.zhiyan.chat":
+    - /url: https://www.zhiyan.chat
+  - text: "| 联系我们："
+- img "comment":
+- generic: 测试窗
+- dialog:
+  - generic: 常见付款场景说明
+  - generic: 场景描述：
+  - generic: 付款问题，包括未付款订单、拍错买多、重复付款、付款失败、交易关闭、货到付款、合并付款、如何付款
+  - generic: 问法示例：
+  - generic: 拍错了/买多了/怎么付款/能货到付款吗/付款失败了/付款了但显示交易关闭了/我重复付款了/能合并付款吗/能先用后付吗
+  - button "×":
+    - generic: ×
+  - generic: 知识名称
+  - button "新增知识":
+    - generic: 新增知识
+  - generic: 知识优先级
+  - button "holder":
+  - generic: 支付方式与货到付款说明
+  - img "copy":
+  - img "delete":
+  - status
+  - generic: 知识设置
+  - generic "知识名称": "* 知识名称"
+  - textbox "* 知识名称":
+    - /placeholder: 请输入知识名称
+    - text: 支付方式与货到付款说明
+  - generic: 第1次知识内容
+  - generic: 回复方式
+  - radio "AI回复" [checked]
+  - generic: AI回复
+  - radio "原文回复"
+  - generic: 原文回复
+  - radio "转人工接待"
+  - generic: 转人工接待
+  - radio "登记工单"
+  - generic: 登记工单
+  - button "smile 表情":
+    - img "smile":
+    - generic: 表情
+  - button "picture 图片":
+    - img "picture":
+    - generic: 图片
+  - button "youtube 视频":
+    - img "youtube":
+    - generic: 视频
+  - button "sliders 变量":
+    - img "sliders":
+    - generic: 变量
+  - button "book 商品知识":
+    - img "book":
+    - generic: 商品知识
+  - textbox:
+    - paragraph: 1. 店铺支持的支付方式以提交订单页/收银台展示为准，常见为支付宝、花呗、银行卡等线上支付。
+    - paragraph: 2. 若提交订单页没有“货到付款”选项，说明该商品/地区暂不支持货到付款，请选择线上支付；支付成功后按页面时效发货。
+    - paragraph: 3. 未付款订单超时会自动关闭，可重新下单；拍错/买多可在未发货前取消或联系客服；重复付款、付款失败可提供订单号协助核实。
+    - paragraph: 4. 合并付款、先用后付等以平台页面是否展示为准。
+  - button "plus 添加第2次知识内容":
+    - img "plus":
+    - generic: 添加第2次知识内容
+  - generic: 满足条件设置
+  - generic "是否生效": "* 是否生效"
+  - switch "* 是否生效" [checked]:
+    - generic: 开
+    - generic: 关
+  - generic "关联商品": "* 关联商品"
+  - radio "全部商品" [checked]
+  - generic: 全部商品
+  - radio "指定商品"
+  - generic: 指定商品
+  - radio "指定分组"
+  - generic: 指定分组
+  - radio "商品标题"
+  - generic: 商品标题
+  - generic "订单状态": "* 订单状态"
+  - checkbox "未下单" [checked]
+  - generic: 未下单
+  - checkbox "未付款" [checked]
+  - generic: 未付款
+  - checkbox "待发货(已付款)" [checked]
+  - generic: 待发货(已付款)
+  - checkbox "待收货" [checked]
+  - generic: 待收货
+  - checkbox "未评价(已签收)" [checked]
+  - generic: 未评价(已签收)
+  - checkbox "已评价" [checked]
+  - generic: 已评价
+  - checkbox "已关闭(已取消)" [checked]
+  - generic: 已关闭(已取消)
+  - generic "生效时间": "* 生效时间"
+  - radio "长期有效" [checked]
+  - generic: 长期有效
+  - radio "指定时间段"
+  - generic: 指定时间段
+  - radio "指定时效"
+  - generic: 指定时效
+  - generic: 买家历史消息
+  - switch "买家历史消息"
+  - generic: 客服历史消息
+  - switch "客服历史消息"
+  - button "取 消":
+    - generic: 取 消
+  - button "保 存":
+    - generic: 保 存

@@ -1,0 +1,20 @@
+{
+  "executed_on": "2026-10-21",
+  "shop": "UI货品回归店铺B1_20260831_01",
+  "records": 11,
+  "record_results": {
+    "passed": 4,
+    "inconclusive": 4,
+    "not_run": 1,
+    "failed": 2
+  },
+  "checks": 31,
+  "check_results": {
+    "passed": 20,
+    "inconclusive": 5,
+    "not_run": 4,
+    "failed": 2
+  },
+  "verification": "manual_browser_observation",
+  "terminal_browser_automation_run": false
+}

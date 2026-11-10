@@ -1,0 +1,151 @@
+- complementary:
+  - menu:
+    - menuitem "book 知识库管理" [expanded]:
+      - img "book":
+      - generic: 知识库管理
+    - menu:
+      - menuitem "商品管理":
+        - link "商品管理":
+          - /url: /product-config
+      - menuitem "商品知识库":
+        - link "商品知识库":
+          - /url: /product-knowledge
+      - menuitem "商品分组":
+        - link "商品分组":
+          - /url: /product-group
+      - menuitem "货品管理":
+        - link "货品管理":
+          - /url: /stock-config
+      - menuitem "货品知识库":
+        - link "货品知识库":
+          - /url: /stock-knowledge
+      - menuitem "店铺知识库":
+        - link "店铺知识库":
+          - /url: /shop-knowledge
+      - menuitem "场景知识库":
+        - link "场景知识库":
+          - /url: /scene
+      - menuitem "自定义知识库":
+        - link "自定义知识库":
+          - /url: /keyword
+    - menuitem "robot AI智能中心":
+      - img "robot":
+      - generic: AI智能中心
+    - menuitem "filter 策略管理":
+      - img "filter":
+      - generic: 策略管理
+    - menuitem "audit 质检中心":
+      - img "audit":
+      - generic: 质检中心
+    - menuitem "bar-chart VOC洞察分析":
+      - img "bar-chart":
+      - generic: VOC洞察分析
+    - menuitem "dashboard 数据概览":
+      - img "dashboard":
+      - generic: 数据概览
+    - menuitem "sync 设置":
+      - img "sync":
+      - generic: 设置
+    - menuitem "pay-circle 我的言值":
+      - img "pay-circle":
+      - generic: 我的言值
+    - menuitem "tags 关于我们":
+      - link "tags 关于我们":
+        - /url: /contact-us
+        - img "tags":
+        - text: 关于我们
+- banner
+- banner:
+  - img "logo"
+  - tablist:
+    - tab "场景知识库" [selected]
+  - tabpanel "场景知识库"
+  - img "heart":
+  - generic: "剩余言值: 0.0000"
+  - button "充值":
+    - generic: 充值
+  - img "search":
+  - textbox "全店铺搜索"
+  - img "file-text":
+  - generic: 使用文档
+  - img "down":
+  - combobox
+  - img "淘宝/天猫"
+  - generic "UI货品回归店铺B1_20260831_01"
+  - img "user":
+  - generic: 王景坤
+  - img "down":
+- main:
+  - combobox
+  - generic "场景名称"
+  - textbox "请输入内容": 优惠券相关
+  - button "close-circle":
+    - img "close-circle":
+  - img "search":
+  - button "file-text 操作日志":
+    - img "file-text":
+    - generic: 操作日志
+  - button "plus 订阅行业包":
+    - img "plus":
+    - generic: 订阅行业包
+  - generic: 全部分类 (1)
+  - generic: 活动优惠 (1)
+  - text: 更新时间排序
+  - img "down":
+  - generic: 优惠券相关
+  - generic: 行业通用
+  - img "热度"
+  - generic: "0"
+  - generic: 更新时间：
+  - generic: 2026-10-27 15:15
+  - generic: 场景描述：
+  - generic: 优惠券问题，包括优惠券领取、优惠券使用、优惠券返券、优惠券退款、店铺优惠券、满减券
+  - generic: 问法示例：
+  - generic: 有优惠券吗/优惠券在哪/优惠券怎么领/能发张券吗/满减券有吗/优惠券怎么用/有券吗/怎么领券/券在什么地方/能用券吗/返券活动有吗
+  - generic: 场景同步
+  - generic: 编辑问法示例
+  - generic: 新增知识
+  - generic: 满足条件
+  - generic: "关联商品:"
+  - generic: 已选择全部商品
+  - generic: "订单状态:"
+  - generic: 未下单、未付款、待发货(已付款)、待收货、未评价(已签收)、已评价、已关闭(已取消)
+  - generic: "生效时间:"
+  - generic: 长期有效
+  - generic: 优惠券领取、使用与叠加规则
+  - button "edit 编辑":
+    - img "edit":
+    - generic: 编辑
+  - button "delete 删除":
+    - img "delete":
+    - generic: 删除
+  - switch "开 关" [checked]:
+    - generic: 开
+    - generic: 关
+  - generic: 第1次
+  - text: 1. 领取入口：店铺首页、商品详情页、活动会场、入会礼或客服发放的券，以页面展示为准。
+  - text: 2. 使用条件：注意满减门槛、适用商品/品类、有效期、是否限新客/会员；提交订单页会自动展示可用券。
+  - text: 3. 叠加规则：店铺券、平台券、满减、红包、会员折扣能否叠加，以提交订单页结算结果为准；同类型券一般不可叠加。
+  - text: 4. 退款后优惠券是否退回：未过期且符合规则的券一般会退回，具体以券面规则为准。
+  - text: 5. 页面没有可用券，可能是未达到门槛、商品不参与或券已领完。
+  - list:
+    - listitem: 共 1 条
+    - listitem "上一页":
+      - button "left" [disabled]:
+        - img "left":
+    - listitem "1":
+      - generic: "1"
+    - listitem "下一页":
+      - button "right" [disabled]:
+        - img "right":
+    - generic "页码":
+      - combobox "页码"
+      - generic "10 条/页"
+  - text: ©2026 深圳智简未来科技有限公司 | 官网：
+  - link "www.zhiyan.chat":
+    - /url: https://www.zhiyan.chat
+  - text: "| 联系我们："
+- img "comment":
+- generic: 测试窗
+- img "check-circle":
+- generic: 保存成功

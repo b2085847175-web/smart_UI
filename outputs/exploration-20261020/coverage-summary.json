@@ -1,0 +1,10 @@
+{
+  "registered_routes": 30,
+  "observed_routes": 30,
+  "scenarios": 84,
+  "verified": 23,
+  "inspected": 20,
+  "planned": 41,
+  "browser_automation_run": false,
+  "new_readonly_assertion_tests": 7
+}

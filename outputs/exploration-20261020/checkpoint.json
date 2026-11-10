@@ -1,0 +1,310 @@
+{
+  "shop": "UI货品回归店铺B1_20260831_01",
+  "platform": "tmall",
+  "prefix": "UIAUTO_20261020",
+  "records": [
+    {
+      "module": "货品管理",
+      "purpose": "必填校验与新增",
+      "status": "verified",
+      "observed": "空提交显示编码/标题必填；创建后列表显示货品，关联店铺0、知识0"
+    },
+    {
+      "module": "货品管理",
+      "purpose": "编辑货品并配置使用方法",
+      "status": "verified",
+      "observed": "货品标题更新成功；知识保存后已配置1、未配置15，重新切换可见识别码B1STOCK1020",
+      "evidence": "01-stock-knowledge.png"
+    },
+    {
+      "module": "商品管理",
+      "purpose": "必填校验、创建商品并关联货品",
+      "status": "verified",
+      "observed": "空提交阻止保存；创建后列表包含商品ID、货品编码、上架/推荐状态"
+    },
+    {
+      "module": "商品管理",
+      "purpose": "新增并编辑商品属性",
+      "status": "verified",
+      "observed": "UIAUTO容量保存后可编辑为500毫升；食品级304不锈钢；测试识别码B1ATTR1020"
+    },
+    {
+      "module": "商品知识",
+      "purpose": "货品继承与商品单独配置",
+      "status": "verified",
+      "observed": "商品未配置使用方法时显示B1STOCK1020；保存商品专属内容后已配置1/未配置15，已配置页显示B1PRODUCT1020"
+    },
+    {
+      "module": "测试窗",
+      "purpose": "商品上下文、属性与知识回复",
+      "status": "verified",
+      "observed": "发送9102026102001后回复容量500毫升及304材质；使用方法追问回复清洗、密封圈、禁止微波炉；知识来源商品ID正确，商品知识名称使用方法，回复5.5秒；余额0仍回复",
+      "evidence": "03-test-window.png"
+    },
+    {
+      "module": "测试窗",
+      "purpose": "模拟订单校验及订单上下文",
+      "status": "verified",
+      "observed": "未选商品/金额0阻止提交；选测试商品、99元、待发货保存后按钮有订单；回复知识来源显示模拟订单1234567890、待发货、订单时间；转人工兜底提示未配置人工客服策略"
+    },
+    {
+      "module": "测试窗",
+      "purpose": "新会话隔离",
+      "status": "verified",
+      "observed": "加号创建新会话，聊天和知识来源为空，订单重置为无订单；原会话保留"
+    },
+    {
+      "module": "店铺知识库",
+      "purpose": "必填、名称规则、指定商品关联及保存",
+      "status": "verified",
+      "observed": "空提交拦截；名称数字下划线不允许，改UIAUTO礼盒服务后通过；指定商品添加1个，列表启用/长期有效"
+    },
+    {
+      "module": "商品分组",
+      "purpose": "分组绑定商品",
+      "status": "verified",
+      "observed": "创建分组并添加测试商品，保存列表商品数1，自动添加商品保持关闭"
+    },
+    {
+      "module": "商品知识库",
+      "purpose": "配置聚合视图",
+      "status": "verified",
+      "observed": "使用方法已配置商品数量1，与商品管理一致；其余知识为0，存在导入/导出/日志及逐项添加话术"
+    },
+    {
+      "module": "货品知识库",
+      "purpose": "配置聚合视图",
+      "status": "verified",
+      "observed": "使用方法已配置货品数量1，与货品管理一致；提供导入导出及日志入口"
+    },
+    {
+      "module": "自定义知识库",
+      "purpose": "关键词创建、原文回复及来源闭环",
+      "status": "verified",
+      "observed": "关键词蓝鲸暗号创建后，保存原文知识UIAUTO暗号验证；新会话发送关键词原文精确返回B1KEY1020，来源自定义知识库/蓝鲸暗号/UIAUTO暗号验证，0.0秒",
+      "evidence": "05-keyword-reply.png"
+    },
+    {
+      "module": "店铺知识库",
+      "purpose": "指定商品知识参与回复",
+      "status": "verified",
+      "observed": "发送测试商品后咨询礼盒，回复蓝色礼盒/蓝鲸1020/备注礼盒；来源显示店铺知识库内容。发送商品与问题间隔很短，观察到两个相近回复，未判为重复发送缺陷",
+      "evidence": "06-shop-knowledge-reply.png"
+    },
+    {
+      "module": "场景知识库",
+      "purpose": "场景分类和现有策略盘点",
+      "status": "inspected",
+      "observed": "152场景，8类；存在既有功效、语音等配置，非空白店铺；保留既有策略，使用说明和包装服务已在测试窗命中"
+    },
+    {
+      "module": "AI智能体",
+      "purpose": "应答置信度策略",
+      "status": "inspected",
+      "observed": "智能商品应答关闭；配置最低阈值0，低匹配转人工售前，支持自定义话术；未修改开关"
+    },
+    {
+      "module": "AI智能体",
+      "purpose": "客服风格选择",
+      "status": "inspected",
+      "observed": "预设灵活型，另有专业型/亲切型和自定义人设；未保存变更"
+    },
+    {
+      "module": "AI智能体",
+      "purpose": "订单备注安全边界",
+      "status": "inspected",
+      "observed": "智能订单备注关闭；策略标注仅超管配置，现有测试订单备注，含备注插旗；不触发电商订单写入"
+    },
+    {
+      "module": "智能跟单",
+      "purpose": "创建原文跟单任务但不对外触发",
+      "status": "verified",
+      "observed": "咨询未下单第1轮，等待1分钟；空正文校验有效；新增草稿列表状态未启用，未执行实际跟单发送"
+    },
+    {
+      "module": "智能转接",
+      "purpose": "分组与原因策略",
+      "status": "inspected",
+      "observed": "4转接场景现均指向售后客服；售前策略为空，新增可选人工客服/售后转接/系统异常、订单和买家历史条件；与测试窗缺少人工客服策略提示一致"
+    },
+    {
+      "module": "智能工单",
+      "purpose": "查询范围与工单列表",
+      "status": "inspected",
+      "observed": "默认品牌B和目标B1店，最近7天无数据；支持场景/处理人/状态/订单筛选和导出；没有手工新增入口，实际工单生成未触发"
+    },
+    {
+      "module": "智能尺码推荐",
+      "purpose": "尺码表必填与维度选择",
+      "status": "inspected",
+      "observed": "空保存拦截名称；横轴可选身高/体重/袖长/脚宽等，纵轴可无，支持范围、尺码值与尺码图；AI开关关闭，保温杯不适合服装尺码未保存"
+    },
+    {
+      "module": "销冠知识审核",
+      "purpose": "学习结果审核入口",
+      "status": "inspected",
+      "observed": "按关键词/时间/状态查询，买家记录/对话/学习结果均空；销冠学习关闭，缺少真实学习样本，未验证通过/拒绝审核"
+    },
+    {
+      "module": "自定义变量",
+      "purpose": "当前店铺范围的变量复用",
+      "status": "verified",
+      "observed": "新增变量UIAUTO礼盒暗号=蓝鲸1020，显式当前店铺，列表总数12→13；未改全店铺变量"
+    },
+    {
+      "module": "进店欢迎语",
+      "status": "verified",
+      "operation": "新增禁用欢迎语并插入当前店铺变量",
+      "actual": "变量选择器可插入UIAUTO礼盒暗号；保存禁用草稿，未触发客户消息"
+    },
+    {
+      "module": "屏蔽词管理",
+      "status": "inspected",
+      "actual": "初始无屏蔽词；新增弹窗为多行文本；空提交保留弹窗；未增加全店屏蔽规则，运行时拦截待验证"
+    },
+    {
+      "module": "替换词管理",
+      "status": "inspected",
+      "actual": "列表空；支持多行规则及替换词回车标签；空保存提示关键词不能为空、替换词不能为空；实际替换未执行"
+    },
+    {
+      "module": "通用策略",
+      "status": "inspected",
+      "actual": "买家称呼亲亲；重复问答关闭，120秒3次阈值；历史记忆20句；售后周期90天，不含关闭订单。未改全店策略"
+    },
+    {
+      "module": "客服质检",
+      "status": "inspected",
+      "actual": "B1昨日2026-10-19无记录；已展开品牌/问题类型/分类/质检情况/转接场景原因等6项筛选并查询；无记录无法验证详情与质检闭环"
+    },
+    {
+      "module": "会话洞察分析",
+      "status": "inspected",
+      "actual": "默认B1、昨日，无质检记录；有买家昵称、咨询热点、质检点、质检结果、复检情况筛选；详情/复检需真实记录"
+    },
+    {
+      "module": "质检洞察分析",
+      "status": "inspected",
+      "actual": "昨日质检总数0、检出数0、检出率0%；平台分布/TOP20/明细空态；已查询，无法验证非零统计口径"
+    },
+    {
+      "module": "咨询洞察分析",
+      "status": "inspected",
+      "actual": "B1昨日检测0、检出0、率0%；咨询热点TOP20/明细无数据；查询可执行；非零统计及明细钻取待数据"
+    },
+    {
+      "module": "仪表盘",
+      "status": "verified",
+      "actual": "2026-10-14至20：接待2、消息10、转接1、转接率50%；接待流程说明检索优先级自定义→场景→货品→商品→店铺；只是页面说明，不等于已验证所有冲突优先级；完成后回到仪表盘，接待2、消息15、转接1、转接率50%，新增追问和替换词测试后消息量发生变化，不以早先10条作为固定断言；19:54完成停用后恢复验证，最终消息17，其余接待2、转接1、50%不变",
+      "evidence": "11-dashboard-final.png"
+    },
+    {
+      "module": "统计分析",
+      "status": "verified",
+      "actual": "咨询统计接待2消息10与仪表盘一致；商品热度5/转接率50%；转接1原因人工客服占100%；查看会话新标签页带入2026-10-14至20过滤并显示本次模拟会话"
+    },
+    {
+      "module": "客服质检闭环",
+      "status": "verified",
+      "actual": "从转接统计钻取找到tmall_c075516ce6f64769；查看详情并选择转接消息，显示测试商品/模拟订单1234567890/待发货/4.9秒/缺人工客服策略；已标记为已检，按钮禁用且成功提示"
+    },
+    {
+      "module": "跨店同步",
+      "status": "inspected",
+      "actual": "13个模块可选；默认增量，可覆盖；绑定商品知识不同步，视频同平台；最近30天日志空。未选择其他店铺或提交同步"
+    },
+    {
+      "module": "客服账号管理",
+      "status": "inspected",
+      "actual": "B1暂无AI员工数据；账号搜索及状态筛选可见；没有账号行无法验证连接与启停。测试窗使用测试专用1不证明真实AI员工接入"
+    },
+    {
+      "module": "我的言值",
+      "status": "inspected",
+      "actual": "余额0、套餐2026-09-24到期；页面存在授信额度且已使用，可解释0余额仍应答但未验证计费扣减。此页部分统计默认全部店铺，未导出、充值或更改"
+    },
+    {
+      "module": "言值消耗明细",
+      "status": "inspected",
+      "actual": "默认全部83店铺、近7天、24条记录；支持店铺多选/业务类型/日期/分页。未将全部店铺消费视为B1消费，未验证本次测试扣减"
+    },
+    {
+      "module": "关于我们",
+      "status": "inspected",
+      "actual": "帮助/官网/联系方式展示；未对外联系或提交信息"
+    },
+    {
+      "module": "测试窗",
+      "purpose": "单独追问与上下文延续",
+      "status": "verified",
+      "observed": "单次发送再确认一次：礼盒暗号是什么？仅出现1条新AI回复蓝鲸1020；先前连发商品和问题产生两条回复，暂不能判定重复回复缺陷"
+    },
+    {
+      "module": "替换词管理",
+      "purpose": "必填校验、创建、生效及停用",
+      "status": "verified",
+      "observed": "空提交提示关键词和替换词必填；启用B1KEY1020→B1REPLACE1020后，新发送蓝鲸暗号在19:40:38收到替换后的原文回复；随后停用，列表停用/操作启用，提示已停用",
+      "evidence": "09-replacement-reply.png",
+      "cleanupEvidence": "10-replacement-disabled.png"
+    },
+    {
+      "module": "替换词管理",
+      "purpose": "停用后运行还原",
+      "status": "verified",
+      "observed": "规则已停用后，在保留测试会话tmall_c95a35f6b5aa4f21于19:54:22新发送蓝鲸暗号，19:54:23最新AI回复恢复UIAUTO关键词原文回复成功，识别码B1KEY1020。",
+      "evidence": "12-replacement-restored.png"
+    }
+  ],
+  "created": [
+    {
+      "type": "货品",
+      "code": "UIAUTO_20261020_STOCK01",
+      "name": "UIAUTO_20261020保温杯货品_已编辑"
+    },
+    {
+      "type": "商品",
+      "id": "9102026102001",
+      "name": "UIAUTO_20261020保温杯商品",
+      "stock": "UIAUTO_20261020_STOCK01"
+    },
+    {
+      "type": "店铺知识",
+      "name": "UIAUTO礼盒服务",
+      "scope": "指定商品9102026102001",
+      "contentMarker": "蓝鲸1020"
+    },
+    {
+      "type": "商品分组",
+      "name": "UIAUTO_20261020保温杯分组",
+      "productCount": 1
+    },
+    {
+      "type": "关键词场景",
+      "name": "蓝鲸暗号",
+      "knowledge": "UIAUTO暗号验证",
+      "marker": "B1KEY1020"
+    },
+    {
+      "type": "跟单任务",
+      "name": "UIAUTO_20261020跟单草稿",
+      "enabled": false
+    },
+    {
+      "type": "变量",
+      "name": "UIAUTO礼盒暗号",
+      "scope": "当前店铺",
+      "value": "蓝鲸1020"
+    },
+    {
+      "type": "欢迎语",
+      "name": "UIAUTO_20261020欢迎语草稿",
+      "enabled": false
+    },
+    {
+      "type": "替换词",
+      "keyword": "B1KEY1020",
+      "replacement": "B1REPLACE1020",
+      "enabled": false
+    }
+  ]
+}

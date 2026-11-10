@@ -1,0 +1,11 @@
+# 测试数据（数据驱动用例可从此处读取）
+valid_users:
+  - username: standard_user
+    password: secret_sauce
+  - username: problem_user
+    password: secret_sauce
+
+invalid_users:
+  - username: locked_out_user
+    password: secret_sauce
+    expected_error: "Sorry, this user has been locked out"

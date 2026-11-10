@@ -1,0 +1,303 @@
+- complementary:
+  - menu:
+    - menuitem "book 知识库管理" [expanded]:
+      - img "book":
+      - generic: 知识库管理
+    - menu:
+      - menuitem "商品管理":
+        - link "商品管理":
+          - /url: /product-config
+      - menuitem "商品知识库":
+        - link "商品知识库":
+          - /url: /product-knowledge
+      - menuitem "商品分组":
+        - link "商品分组":
+          - /url: /product-group
+      - menuitem "货品管理":
+        - link "货品管理":
+          - /url: /stock-config
+      - menuitem "货品知识库":
+        - link "货品知识库":
+          - /url: /stock-knowledge
+      - menuitem "店铺知识库":
+        - link "店铺知识库":
+          - /url: /shop-knowledge
+      - menuitem "场景知识库":
+        - link "场景知识库":
+          - /url: /scene
+      - menuitem "自定义知识库":
+        - link "自定义知识库":
+          - /url: /keyword
+    - menuitem "robot AI智能中心":
+      - img "robot":
+      - generic: AI智能中心
+    - menuitem "filter 策略管理":
+      - img "filter":
+      - generic: 策略管理
+    - menuitem "audit 质检中心":
+      - img "audit":
+      - generic: 质检中心
+    - menuitem "bar-chart VOC洞察分析":
+      - img "bar-chart":
+      - generic: VOC洞察分析
+    - menuitem "dashboard 数据概览":
+      - img "dashboard":
+      - generic: 数据概览
+    - menuitem "sync 设置":
+      - img "sync":
+      - generic: 设置
+    - menuitem "pay-circle 我的言值":
+      - img "pay-circle":
+      - generic: 我的言值
+    - menuitem "tags 关于我们":
+      - link "tags 关于我们":
+        - /url: /contact-us
+        - img "tags":
+        - text: 关于我们
+- banner
+- banner:
+  - img "logo"
+  - tablist:
+    - tab "货品知识库" [selected]
+  - tabpanel "货品知识库"
+  - img "heart":
+  - generic: "剩余言值: 0.0000"
+  - button "充值":
+    - generic: 充值
+  - img "search":
+  - textbox "全店铺搜索"
+  - img "file-text":
+  - generic: 使用文档
+  - img "down":
+  - combobox
+  - img "淘宝/天猫"
+  - generic "UI货品回归店铺B1_20260831_01"
+  - img "user":
+  - generic: 王景坤
+  - img "down":
+- main:
+  - textbox "请输入货品知识名称"
+  - img "search":
+  - button "download 导出知识库":
+    - img "download":
+    - generic: 导出知识库
+  - button "upload 导入知识库":
+    - img "upload":
+    - generic: 导入知识库
+  - button "file-text 操作日志":
+    - img "file-text":
+    - generic: 操作日志
+  - table:
+    - rowgroup:
+      - row "货品知识名称 货品知识描述 已配置货品数量 操作":
+        - columnheader "货品知识名称"
+        - columnheader "货品知识描述"
+        - columnheader "已配置货品数量"
+        - columnheader "操作"
+    - rowgroup:
+      - row "使用方法 用户询问产品本身的使用方式、步骤、用量、使用频率、使用时间、多久使用一次、是否清洗等具体操作，以及与其他产品之间的使用先后顺序。 2 plus 添加话术":
+        - cell "使用方法"
+        - cell "用户询问产品本身的使用方式、步骤、用量、使用频率、使用时间、多久使用一次、是否清洗等具体操作，以及与其他产品之间的使用先后顺序。"
+        - cell "2"
+        - cell "plus 添加话术":
+          - button "plus 添加话术":
+            - img "plus":
+            - generic: 添加话术
+      - row "功能效果 用户关注产品所具备的功能、作用与使用效果，包括产品基础功能、实用能力，以及效果、作用、见效时长与持续时长等相关问题。 0 plus 添加话术":
+        - cell "功能效果"
+        - cell "用户关注产品所具备的功能、作用与使用效果，包括产品基础功能、实用能力，以及效果、作用、见效时长与持续时长等相关问题。"
+        - cell "0"
+        - cell "plus 添加话术":
+          - button "plus 添加话术":
+            - img "plus":
+            - generic: 添加话术
+      - row "可用时长/次数 用户关注产品大约可以使用多长时间或多少次，如一瓶能用多久、一次用多少量、使用时长等，核心在于产品本身的消耗情况，而非效果显现时间。 0 plus 添加话术":
+        - cell "可用时长/次数"
+        - cell "用户关注产品大约可以使用多长时间或多少次，如一瓶能用多久、一次用多少量、使用时长等，核心在于产品本身的消耗情况，而非效果显现时间。"
+        - cell "0"
+        - cell "plus 添加话术":
+          - button "plus 添加话术":
+            - img "plus":
+            - generic: 添加话术
+      - row "成分表 用户关注产品所含全部化学或天然成分，用于了解配方组成、配料构成等信息，通常对应官方公布的成分表或配料清单。 0 plus 添加话术":
+        - cell "成分表"
+        - cell "用户关注产品所含全部化学或天然成分，用于了解配方组成、配料构成等信息，通常对应官方公布的成分表或配料清单。"
+        - cell "0"
+        - cell "plus 添加话术":
+          - button "plus 添加话术":
+            - img "plus":
+            - generic: 添加话术
+      - row "适用部位 说明产品适用于身体的具体部位，如面部、眼部、唇部、头皮、身体肌肤等。 0 plus 添加话术":
+        - cell "适用部位"
+        - cell "说明产品适用于身体的具体部位，如面部、眼部、唇部、头皮、身体肌肤等。"
+        - cell "0"
+        - cell "plus 添加话术":
+          - button "plus 添加话术":
+            - img "plus":
+            - generic: 添加话术
+      - row "香味 描述产品的香味类型和特点，如花香、果香、木香、清香、淡香、浓香等，帮助用户了解产品的气味属性。 0 plus 添加话术":
+        - cell "香味"
+        - cell "描述产品的香味类型和特点，如花香、果香、木香、清香、淡香、浓香等，帮助用户了解产品的气味属性。"
+        - cell "0"
+        - cell "plus 添加话术":
+          - button "plus 添加话术":
+            - img "plus":
+            - generic: 添加话术
+      - row "生产日期保质期 说明用户关注产品的生产日期与保质期（质保期）信息，包括生产时间、是否为近期生产、保质/质保期时长等，帮助判断产品是否临期、是否新鲜、是否还在质保期内等。 0 plus 添加话术":
+        - cell "生产日期保质期"
+        - cell "说明用户关注产品的生产日期与保质期（质保期）信息，包括生产时间、是否为近期生产、保质/质保期时长等，帮助判断产品是否临期、是否新鲜、是否还在质保期内等。"
+        - cell "0"
+        - cell "plus 添加话术":
+          - button "plus 添加话术":
+            - img "plus":
+            - generic: 添加话术
+      - row "卖点 展示产品最突出的特点或核心优势，用于吸引消费者关注和购买。 0 plus 添加话术":
+        - cell "卖点"
+        - cell "展示产品最突出的特点或核心优势，用于吸引消费者关注和购买。"
+        - cell "0"
+        - cell "plus 添加话术":
+          - button "plus 添加话术":
+            - img "plus":
+            - generic: 添加话术
+      - row "产品规格说明 用户咨询多个规格、型号、成分、颜色、组合、套装赠品等内容的区别、选择建议或赠品分配情况，通常涉及具体需求、人群特征、价格对比或优惠配置。 0 plus 添加话术":
+        - cell "产品规格说明"
+        - cell "用户咨询多个规格、型号、成分、颜色、组合、套装赠品等内容的区别、选择建议或赠品分配情况，通常涉及具体需求、人群特征、价格对比或优惠配置。"
+        - cell "0"
+        - cell "plus 添加话术":
+          - button "plus 添加话术":
+            - img "plus":
+            - generic: 添加话术
+      - row "注意事项 列出使用产品时需要注意的事项，如禁忌、避光、避免误食、能不能晒太阳等。 0 plus 添加话术":
+        - cell "注意事项"
+        - cell "列出使用产品时需要注意的事项，如禁忌、避光、避免误食、能不能晒太阳等。"
+        - cell "0"
+        - cell "plus 添加话术":
+          - button "plus 添加话术":
+            - img "plus":
+            - generic: 添加话术
+  - list:
+    - listitem: 共 16 项
+    - listitem "上一页":
+      - button "left" [disabled]:
+        - img "left":
+    - listitem "1":
+      - generic: "1"
+    - listitem "2":
+      - generic: "2"
+    - listitem "下一页":
+      - button "right":
+        - img "right":
+    - generic "页码":
+      - combobox "页码"
+      - generic "10 条/页"
+    - text: 跳至
+    - textbox "页"
+    - text: 页
+  - text: ©2026 深圳智简未来科技有限公司 | 官网：
+  - link "www.zhiyan.chat":
+    - /url: https://www.zhiyan.chat
+  - text: "| 联系我们："
+- img "comment":
+- generic: 测试窗
+- dialog:
+  - generic: 客服测试
+  - button "关闭客服测试":
+    - img "close":
+  - radiogroup "segmented control":
+    - radio "tmall_c95a35f6.."
+    - generic: tmall_c95a35f6..
+    - radio "tmall_c075516c.."
+    - generic: tmall_c075516c..
+    - radio "tmall_4124b48f.."
+    - generic: tmall_4124b48f..
+    - radio "tmall_981f1a41.."
+    - generic: tmall_981f1a41..
+    - radio "tmall_b8a48584.." [checked]
+    - generic: tmall_b8a48584..
+    - radio "plus"
+    - img "plus":
+  - list:
+    - img "user":
+    - generic: tmall_b8a4858403ae464f2026/10/21 19:38:34
+    - generic: 我想买保温杯，请推荐店内在售的杯子，并提供可以购买的商品链接。
+    - img "aliwangwang":
+    - generic: UI货品回归店铺B1_20260831_01:测试专用12026/10/21 19:38:41
+    - generic: "\x07\b亲，咱们这款UIAUTO保温杯是500毫升的，食品级304不锈钢材质，现在有货，您可以放心入手呢"
+    - button "知识来源" [active]:
+      - generic: 知识来源
+    - img "aliwangwang":
+    - generic: UI货品回归店铺B1_20260831_01:测试专用12026/10/21 19:38:41
+    - generic: https://item.taobao.com/item.htm?id=9102026102001
+    - button "知识来源":
+      - generic: 知识来源
+  - button "shopping 发送商品":
+    - img "shopping":
+    - generic: 发送商品
+  - combobox
+  - generic "UI货品回归店铺B1_20260831_01:测试专用1"
+  - button "无订单":
+    - generic: 无订单
+  - button "删除会话":
+    - generic: 删除会话
+  - button "发送图片":
+    - img "picture":
+  - textbox "输入消息..."
+  - button "send 发送":
+    - img "send":
+    - generic: 发送
+  - generic: 知识来源
+  - button "关闭知识来源":
+    - img "close":
+  - button "收起 right 基础信息" [expanded]:
+    - text: 收起
+    - img "right":
+    - generic: 基础信息
+  - table:
+    - rowgroup:
+      - row "店铺 UI货品回归店铺B1_20260831_01":
+        - rowheader "店铺"
+        - cell "UI货品回归店铺B1_20260831_01":
+          - generic: UI货品回归店铺B1_20260831_01
+      - row "商品ID 9102026102001 点击复制":
+        - rowheader "商品ID"
+        - cell "9102026102001 点击复制":
+          - text: "9102026102001"
+          - button "点击复制":
+            - img "copy":
+      - row "商品标题 UIAUTO_20261020保温杯商品":
+        - rowheader "商品标题"
+        - cell "UIAUTO_20261020保温杯商品"
+      - row "订单号":
+        - rowheader "订单号"
+        - cell
+      - row "订单状态":
+        - rowheader "订单状态"
+        - cell
+      - row "订单时间":
+        - rowheader "订单时间"
+        - cell
+      - row "回复时间 7.1 秒":
+        - rowheader "回复时间"
+        - cell "7.1 秒"
+  - button "收起 right 详细信息" [expanded]:
+    - text: 收起
+    - img "right":
+    - generic: 详细信息
+  - table:
+    - rowgroup:
+      - row "场景知识库 商品推荐与选购建议":
+        - rowheader "场景知识库"
+        - cell "商品推荐与选购建议":
+          - generic: 商品推荐与选购建议
+      - row "温馨提示 没有符合条件的知识":
+        - rowheader "温馨提示"
+        - cell "没有符合条件的知识":
+          - generic: 没有符合条件的知识
+      - row "商品推荐类型 spu":
+        - rowheader "商品推荐类型"
+        - cell "spu":
+          - generic: spu
+      - row "商品推荐可选ID 9102026102001":
+        - rowheader "商品推荐可选ID"
+        - cell "9102026102001":
+          - generic: "9102026102001"

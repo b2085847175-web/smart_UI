@@ -1,0 +1,25 @@
+{
+  "stock": {
+    "code": "UIAUTO_20261021_STOCK02",
+    "title": "UIAUTO_20261021共享保温杯货品",
+    "knowledge": "共享货品通用使用步骤：所有关联保温杯首次使用前用温水冲洗内胆，注水后拧紧杯盖。共享识别码B1SHARED1021。"
+  },
+  "products": [
+    {
+      "id": "9102026102101",
+      "title": "UIAUTO_20261021共享杯甲商品",
+      "name": "共享杯甲",
+      "marker": "B1PA1021",
+      "operation": "按住蓝色按钮三秒",
+      "other_marker": "B1PB1021"
+    },
+    {
+      "id": "9102026102102",
+      "title": "UIAUTO_20261021共享杯乙商品",
+      "name": "共享杯乙",
+      "marker": "B1PB1021",
+      "operation": "旋转绿色杯盖两圈",
+      "other_marker": "B1PA1021"
+    }
+  ]
+}

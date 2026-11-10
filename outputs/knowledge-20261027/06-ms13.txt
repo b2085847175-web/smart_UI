@@ -1,0 +1,152 @@
+- complementary:
+  - menu:
+    - menuitem "book 知识库管理" [expanded]:
+      - img "book":
+      - generic: 知识库管理
+    - menu:
+      - menuitem "商品管理":
+        - link "商品管理":
+          - /url: /product-config
+      - menuitem "商品知识库":
+        - link "商品知识库":
+          - /url: /product-knowledge
+      - menuitem "商品分组":
+        - link "商品分组":
+          - /url: /product-group
+      - menuitem "货品管理":
+        - link "货品管理":
+          - /url: /stock-config
+      - menuitem "货品知识库":
+        - link "货品知识库":
+          - /url: /stock-knowledge
+      - menuitem "店铺知识库":
+        - link "店铺知识库":
+          - /url: /shop-knowledge
+      - menuitem "场景知识库":
+        - link "场景知识库":
+          - /url: /scene
+      - menuitem "自定义知识库":
+        - link "自定义知识库":
+          - /url: /keyword
+    - menuitem "robot AI智能中心":
+      - img "robot":
+      - generic: AI智能中心
+    - menuitem "filter 策略管理":
+      - img "filter":
+      - generic: 策略管理
+    - menuitem "audit 质检中心":
+      - img "audit":
+      - generic: 质检中心
+    - menuitem "bar-chart VOC洞察分析":
+      - img "bar-chart":
+      - generic: VOC洞察分析
+    - menuitem "dashboard 数据概览":
+      - img "dashboard":
+      - generic: 数据概览
+    - menuitem "sync 设置":
+      - img "sync":
+      - generic: 设置
+    - menuitem "pay-circle 我的言值":
+      - img "pay-circle":
+      - generic: 我的言值
+    - menuitem "tags 关于我们":
+      - link "tags 关于我们":
+        - /url: /contact-us
+        - img "tags":
+        - text: 关于我们
+- banner
+- banner:
+  - img "logo"
+  - tablist:
+    - tab "场景知识库" [selected]
+  - tabpanel "场景知识库"
+  - img "heart":
+  - generic: "剩余言值: 0.0000"
+  - button "充值":
+    - generic: 充值
+  - img "search":
+  - textbox "全店铺搜索"
+  - img "file-text":
+  - generic: 使用文档
+  - img "down":
+  - combobox
+  - img "淘宝/天猫"
+  - generic "UI货品回归店铺B1_20260831_01"
+  - img "user":
+  - generic: 王景坤
+  - img "down":
+- main:
+  - combobox
+  - generic "场景名称"
+  - textbox "请输入内容": 咨询退款退货流程
+  - button "close-circle":
+    - img "close-circle":
+  - img "search":
+  - button "file-text 操作日志":
+    - img "file-text":
+    - generic: 操作日志
+  - button "plus 订阅行业包":
+    - img "plus":
+    - generic: 订阅行业包
+  - generic: 全部分类 (1)
+  - generic: 售后咨询 (1)
+  - text: 更新时间排序
+  - img "down":
+  - generic: 咨询退款退货流程
+  - generic: 行业通用
+  - img "热度"
+  - generic: "0"
+  - generic: 更新时间：
+  - generic: 2026-10-27 15:14
+  - generic: 场景描述：
+  - generic: 用户询问如何申请退款、退货退款怎么操作、退款申请如何填写、及退货退款的相关流程。
+  - generic: 问法示例：
+  - generic: 想退款怎么操作/退款申请怎么填/退货退款流程是什么/退款原因填什么/怎么申请退款/退款要多久到账/怎么取消退款/退款的钱退哪里了/退款被拒绝了咋办/退款审核要多久
+  - generic: 场景同步
+  - generic: 编辑问法示例
+  - generic: 新增知识
+  - generic: 满足条件
+  - generic: "关联商品:"
+  - generic: 已选择全部商品
+  - generic: "订单状态:"
+  - generic: 未下单、未付款、待发货(已付款)、待收货、未评价(已签收)、已评价、已关闭(已取消)
+  - generic: "生效时间:"
+  - generic: 长期有效
+  - generic: 退款流程与到账时效
+  - button "edit 编辑" [active]:
+    - img "edit":
+    - generic: 编辑
+  - button "delete 删除":
+    - img "delete":
+    - generic: 删除
+  - switch "开 关" [checked]:
+    - generic: 开
+    - generic: 关
+  - generic: 第1次
+  - text: 非常抱歉，若商品没有让您满意，您可以直接进入订单详情页，点击“申请售后”，按页面提示提交申请即可。
+  - text: 1. 流程：订单详情 → 申请售后 → 选择退款/退货退款 → 填写原因并上传凭证 → 商家审核 →（退货类需寄回或拒收）→ 退款。
+  - text: 2. 已发货订单可引导拒收，包裹退回后发起退款；也可签收后申请退货退款。
+  - text: 3. 商家同意退款后原路退回，支付宝/微信/银行卡一般 1-7 个工作日到账，具体以支付渠道为准；花呗按支付宝规则恢复额度。
+  - text: 4. 退款进度可在订单详情/售后详情查看；超时未到账可提供订单号转人工核实。
+  - text: 5. 退款成功后优惠券/积分是否退回以活动规则为准。
+  - list:
+    - listitem: 共 1 条
+    - listitem "上一页":
+      - button "left" [disabled]:
+        - img "left":
+    - listitem "1":
+      - generic: "1"
+    - listitem "下一页":
+      - button "right" [disabled]:
+        - img "right":
+    - generic "页码":
+      - combobox "页码"
+      - generic "10 条/页"
+  - text: ©2026 深圳智简未来科技有限公司 | 官网：
+  - link "www.zhiyan.chat":
+    - /url: https://www.zhiyan.chat
+  - text: "| 联系我们："
+- img "comment":
+- generic: 测试窗
+- img "check-circle":
+- generic: 保存成功

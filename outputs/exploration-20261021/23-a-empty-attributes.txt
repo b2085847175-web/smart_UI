@@ -1,0 +1,259 @@
+- complementary:
+  - menu:
+    - menuitem "book 知识库管理" [expanded]:
+      - img "book":
+      - generic: 知识库管理
+    - menu:
+      - menuitem "商品管理":
+        - link "商品管理":
+          - /url: /product-config
+      - menuitem "商品知识库":
+        - link "商品知识库":
+          - /url: /product-knowledge
+      - menuitem "商品分组":
+        - link "商品分组":
+          - /url: /product-group
+      - menuitem "货品管理":
+        - link "货品管理":
+          - /url: /stock-config
+      - menuitem "货品知识库":
+        - link "货品知识库":
+          - /url: /stock-knowledge
+      - menuitem "店铺知识库":
+        - link "店铺知识库":
+          - /url: /shop-knowledge
+      - menuitem "场景知识库":
+        - link "场景知识库":
+          - /url: /scene
+      - menuitem "自定义知识库":
+        - link "自定义知识库":
+          - /url: /keyword
+    - menuitem "robot AI智能中心":
+      - img "robot":
+      - generic: AI智能中心
+    - menuitem "filter 策略管理":
+      - img "filter":
+      - generic: 策略管理
+    - menuitem "audit 质检中心":
+      - img "audit":
+      - generic: 质检中心
+    - menuitem "bar-chart VOC洞察分析":
+      - img "bar-chart":
+      - generic: VOC洞察分析
+    - menuitem "dashboard 数据概览":
+      - img "dashboard":
+      - generic: 数据概览
+    - menuitem "sync 设置":
+      - img "sync":
+      - generic: 设置
+    - menuitem "pay-circle 我的言值":
+      - img "pay-circle":
+      - generic: 我的言值
+    - menuitem "tags 关于我们":
+      - link "tags 关于我们":
+        - /url: /contact-us
+        - img "tags":
+        - text: 关于我们
+- banner
+- banner:
+  - img "logo"
+  - tablist:
+    - tab "商品管理" [selected]
+  - tabpanel "商品管理"
+  - img "heart":
+  - generic: "剩余言值: 0.0000"
+  - button "充值":
+    - generic: 充值
+  - img "search":
+  - textbox "全店铺搜索"
+  - img "file-text":
+  - generic: 使用文档
+  - img "down":
+  - combobox
+  - img "淘宝/天猫"
+  - generic "UI货品回归店铺B1_20260831_01"
+  - img "user":
+  - generic: 王景坤
+  - img "down":
+- main:
+  - textbox "请输入商品ID、商品标题搜索"
+  - img "search":
+  - textbox "请输入货品编码搜索"
+  - img "search":
+  - combobox
+  - generic "全部"
+  - button "down 批量操作":
+    - img "down":
+    - generic: 批量操作
+  - button "plus 新增商品":
+    - img "plus":
+    - generic: 新增商品
+  - table:
+    - rowgroup:
+      - row "商品信息 商品状态 是否推荐 更新时间 操作":
+        - columnheader
+        - columnheader "商品信息"
+        - columnheader "商品状态"
+        - columnheader "是否推荐"
+        - columnheader "更新时间":
+          - generic: 更新时间
+        - columnheader "操作"
+    - rowgroup:
+      - generic: 更新时间
+      - 'row "暂无图片 UIAUTO_20261020保温杯商品 商品ID: 9102026102001 点击复制 货品编码: UIAUTO_20261020_STOCK01 点击复制 上架 是 2026-10-21 20:03:29 edit 编辑 plus 添加话术 profile 商品属性 picture 图片管理 delete 删除"':
+        - cell
+        - 'cell "暂无图片 UIAUTO_20261020保温杯商品 商品ID: 9102026102001 点击复制 货品编码: UIAUTO_20261020_STOCK01 点击复制"':
+          - generic: 暂无图片
+          - generic: UIAUTO_20261020保温杯商品
+          - text: "商品ID:"
+          - link "9102026102001":
+            - /url: https://detail.tmall.com/item.htm?id=9102026102001
+          - button "点击复制":
+            - img "copy":
+          - text: "货品编码:"
+          - link "UIAUTO_20261020_STOCK01":
+            - /url: /stock-config
+          - button "点击复制":
+            - img "copy":
+        - cell "上架":
+          - generic: 上架
+        - cell "是":
+          - generic: 是
+        - cell "2026-10-21 20:03:29"
+        - cell "edit 编辑 plus 添加话术 profile 商品属性 picture 图片管理 delete 删除":
+          - button "edit 编辑":
+            - img "edit":
+            - generic: 编辑
+          - button "plus 添加话术":
+            - img "plus":
+            - generic: 添加话术
+          - button "profile 商品属性":
+            - img "profile":
+            - generic: 商品属性
+          - button "picture 图片管理":
+            - img "picture":
+            - generic: 图片管理
+          - button "delete 删除":
+            - img "delete":
+            - generic: 删除
+      - 'row "暂无图片 UIAUTO_20261021共享杯甲商品 商品ID: 9102026102101 点击复制 货品编码: UIAUTO_20261021_STOCK02 点击复制 上架 是 2026-10-21 19:44:50 edit 编辑 plus 添加话术 profile 商品属性 picture 图片管理 delete 删除"':
+        - cell
+        - 'cell "暂无图片 UIAUTO_20261021共享杯甲商品 商品ID: 9102026102101 点击复制 货品编码: UIAUTO_20261021_STOCK02 点击复制"':
+          - generic: 暂无图片
+          - generic: UIAUTO_20261021共享杯甲商品
+          - text: "商品ID:"
+          - link "9102026102101":
+            - /url: https://detail.tmall.com/item.htm?id=9102026102101
+          - button "点击复制":
+            - img "copy":
+          - text: "货品编码:"
+          - link "UIAUTO_20261021_STOCK02":
+            - /url: /stock-config
+          - button "点击复制":
+            - img "copy":
+        - cell "上架":
+          - generic: 上架
+        - cell "是":
+          - generic: 是
+        - cell "2026-10-21 19:44:50"
+        - cell "edit 编辑 plus 添加话术 profile 商品属性 picture 图片管理 delete 删除":
+          - button "edit 编辑":
+            - img "edit":
+            - generic: 编辑
+          - button "plus 添加话术":
+            - img "plus":
+            - generic: 添加话术
+          - button "profile 商品属性":
+            - img "profile":
+            - generic: 商品属性
+          - button "picture 图片管理":
+            - img "picture":
+            - generic: 图片管理
+          - button "delete 删除":
+            - img "delete":
+            - generic: 删除
+      - 'row "暂无图片 UIAUTO_20261021共享杯乙商品 商品ID: 9102026102102 点击复制 货品编码: UIAUTO_20261021_STOCK02 点击复制 上架 是 2026-10-21 19:34:58 edit 编辑 plus 添加话术 profile 商品属性 picture 图片管理 delete 删除"':
+        - cell
+        - 'cell "暂无图片 UIAUTO_20261021共享杯乙商品 商品ID: 9102026102102 点击复制 货品编码: UIAUTO_20261021_STOCK02 点击复制"':
+          - generic: 暂无图片
+          - generic: UIAUTO_20261021共享杯乙商品
+          - text: "商品ID:"
+          - link "9102026102102":
+            - /url: https://detail.tmall.com/item.htm?id=9102026102102
+          - button "点击复制":
+            - img "copy":
+          - text: "货品编码:"
+          - link "UIAUTO_20261021_STOCK02":
+            - /url: /stock-config
+          - button "点击复制":
+            - img "copy":
+        - cell "上架":
+          - generic: 上架
+        - cell "是":
+          - generic: 是
+        - cell "2026-10-21 19:34:58"
+        - cell "edit 编辑 plus 添加话术 profile 商品属性 picture 图片管理 delete 删除":
+          - button "edit 编辑":
+            - img "edit":
+            - generic: 编辑
+          - button "plus 添加话术":
+            - img "plus":
+            - generic: 添加话术
+          - button "profile 商品属性":
+            - img "profile":
+            - generic: 商品属性
+          - button "picture 图片管理":
+            - img "picture":
+            - generic: 图片管理
+          - button "delete 删除":
+            - img "delete":
+            - generic: 删除
+  - list:
+    - listitem: 共 3 项
+    - listitem "上一页":
+      - button "left" [disabled]:
+        - img "left":
+    - listitem "1":
+      - generic: "1"
+    - listitem "下一页":
+      - button "right" [disabled]:
+        - img "right":
+    - generic "页码":
+      - combobox "页码"
+      - generic "10 条/页"
+  - text: ©2026 深圳智简未来科技有限公司 | 官网：
+  - link "www.zhiyan.chat":
+    - /url: https://www.zhiyan.chat
+  - text: "| 联系我们："
+- img "comment":
+- generic: 测试窗
+- dialog "商品属性":
+  - button "关闭":
+    - img "close":
+  - generic: 商品属性
+  - button "编辑商品":
+    - img "edit":
+  - generic: 上架
+  - generic: UIAUTO_20261021共享杯甲商品
+  - text: 商品ID：
+  - text: "9102026102101"
+  - button "点击复制":
+    - img "copy":
+  - generic: 商品名称：共享杯甲
+  - button "plus 添加属性":
+    - img "plus":
+    - generic: 添加属性
+  - textbox "属性名搜索"
+  - table:
+    - rowgroup:
+      - row "属性名 属性值 操作":
+        - columnheader "属性名"
+        - columnheader "属性值"
+        - columnheader "操作"
+        - columnheader
+  - table:
+    - rowgroup:
+      - row "暂无数据 暂无数据":
+        - cell "暂无数据 暂无数据":
+          - img "暂无数据"
+          - generic: 暂无数据

@@ -1,0 +1,2023 @@
+{
+  "schema_version": 1,
+  "explored_on": "2026-10-20",
+  "site": "https://dev.zhiyan.chat",
+  "shop": "UI货品回归店铺B1_20260831_01",
+  "platform": "tmall",
+  "scope": "30个登记业务页面及测试窗；页面访问不等于所有业务分支通过",
+  "definitions": {
+    "verified": "本条所述操作和结果已通过内置浏览器观察；不扩展为整个模块通过",
+    "inspected": "页面、配置或空态已检查；尚未验证运行结果",
+    "planned": "补充的业务分支；本次未执行"
+  },
+  "dataset": [
+    {
+      "type": "货品",
+      "code": "UIAUTO_20261020_STOCK01",
+      "name": "UIAUTO_20261020保温杯货品_已编辑"
+    },
+    {
+      "type": "商品",
+      "id": "9102026102001",
+      "name": "UIAUTO_20261020保温杯商品",
+      "stock": "UIAUTO_20261020_STOCK01"
+    },
+    {
+      "type": "店铺知识",
+      "name": "UIAUTO礼盒服务",
+      "scope": "指定商品9102026102001",
+      "contentMarker": "蓝鲸1020"
+    },
+    {
+      "type": "商品分组",
+      "name": "UIAUTO_20261020保温杯分组",
+      "productCount": 1
+    },
+    {
+      "type": "关键词场景",
+      "name": "蓝鲸暗号",
+      "knowledge": "UIAUTO暗号验证",
+      "marker": "B1KEY1020"
+    },
+    {
+      "type": "跟单任务",
+      "name": "UIAUTO_20261020跟单草稿",
+      "enabled": false
+    },
+    {
+      "type": "变量",
+      "name": "UIAUTO礼盒暗号",
+      "scope": "当前店铺",
+      "value": "蓝鲸1020"
+    },
+    {
+      "type": "欢迎语",
+      "name": "UIAUTO_20261020欢迎语草稿",
+      "enabled": false
+    },
+    {
+      "type": "替换词",
+      "keyword": "B1KEY1020",
+      "replacement": "B1REPLACE1020",
+      "enabled": false
+    }
+  ],
+  "scenarios": [
+    {
+      "id": "B1-001",
+      "module": "货品管理",
+      "path": "/stock-config",
+      "title": "必填校验与新增",
+      "purpose": "准备可复用货品数据",
+      "preconditions": [
+        "登录开发站并选中天猫 / UI货品回归店铺B1_20260831_01",
+        "仅使用UIAUTO_20261020测试记录；保留既有配置"
+      ],
+      "steps": [
+        "货品管理空提交",
+        "填写测试编码和标题后保存"
+      ],
+      "expected": "空表单阻止保存；唯一编码出现在列表",
+      "status": "verified",
+      "actual": "空提交显示编码/标题必填；创建后列表显示货品，关联店铺0、知识0",
+      "evidence": [],
+      "ledger_record": 1,
+      "verification": "manual_browser_observation",
+      "automation": "manual_only"
+    },
+    {
+      "id": "B1-002",
+      "module": "货品管理",
+      "path": "/stock-config",
+      "title": "编辑货品并配置使用方法",
+      "purpose": "让货品知识可被关联商品复用",
+      "preconditions": [
+        "登录开发站并选中天猫 / UI货品回归店铺B1_20260831_01",
+        "仅使用UIAUTO_20261020测试记录；保留既有配置"
+      ],
+      "steps": [
+        "编辑测试货品标题",
+        "打开添加话术",
+        "配置使用方法",
+        "切换页签再读取"
+      ],
+      "expected": "标题持久化；已配置1/未配置15；包含B1STOCK1020",
+      "status": "verified",
+      "actual": "货品标题更新成功；知识保存后已配置1、未配置15，重新切换可见识别码B1STOCK1020",
+      "evidence": [
+        "01-stock-knowledge.png"
+      ],
+      "ledger_record": 2,
+      "verification": "manual_browser_observation",
+      "automation": "tests/b1/test_retained_data.py::test_stock_title_persisted (本次未运行浏览器自动化)；仅断言最终货品标题，未自动覆盖编辑保存和货品知识"
+    },
+    {
+      "id": "B1-003",
+      "module": "商品管理",
+      "path": "/product-config",
+      "title": "必填校验、创建商品并关联货品",
+      "purpose": "建立商品与货品的业务关联",
+      "preconditions": [
+        "登录开发站并选中天猫 / UI货品回归店铺B1_20260831_01",
+        "仅使用UIAUTO_20261020测试记录；保留既有配置"
+      ],
+      "steps": [
+        "商品管理空提交",
+        "新增指定测试商品",
+        "选择测试货品",
+        "保存"
+      ],
+      "expected": "必填拦截；商品ID、货品编码、上架及推荐状态一致",
+      "status": "verified",
+      "actual": "空提交阻止保存；创建后列表包含商品ID、货品编码、上架/推荐状态",
+      "evidence": [],
+      "ledger_record": 3,
+      "verification": "manual_browser_observation",
+      "automation": "tests/b1/test_retained_data.py::test_product_links_stock (本次未运行浏览器自动化)；仅断言已保存商品的关联和状态，未自动执行新增及必填校验"
+    },
+    {
+      "id": "B1-004",
+      "module": "商品管理",
+      "path": "/product-config",
+      "title": "新增并编辑商品属性",
+      "purpose": "为咨询回答提供商品规格",
+      "preconditions": [
+        "登录开发站并选中天猫 / UI货品回归店铺B1_20260831_01",
+        "仅使用UIAUTO_20261020测试记录；保留既有配置"
+      ],
+      "steps": [
+        "打开测试商品的商品属性",
+        "新增UIAUTO容量",
+        "编辑后重新查看"
+      ],
+      "expected": "500毫升、304不锈钢和B1ATTR1020均持久化",
+      "status": "verified",
+      "actual": "UIAUTO容量保存后可编辑为500毫升；食品级304不锈钢；测试识别码B1ATTR1020",
+      "evidence": [],
+      "ledger_record": 4,
+      "verification": "manual_browser_observation",
+      "automation": "tests/b1/test_retained_data.py::test_product_attribute_persisted (本次未运行浏览器自动化)；仅断言已保存属性内容，未自动执行新增/编辑"
+    },
+    {
+      "id": "B1-005",
+      "module": "商品知识",
+      "path": "/product-config",
+      "title": "货品继承与商品单独配置",
+      "purpose": "验证共享知识继承及商品独立配置",
+      "preconditions": [
+        "登录开发站并选中天猫 / UI货品回归店铺B1_20260831_01",
+        "仅使用UIAUTO_20261020测试记录；保留既有配置"
+      ],
+      "steps": [
+        "查看未配置商品的使用方法",
+        "保存商品专属知识",
+        "切换已配置页签"
+      ],
+      "expected": "先可见货品内容；独立配置后可见B1PRODUCT1020；不据此推断检索冲突优先级",
+      "status": "verified",
+      "actual": "商品未配置使用方法时显示B1STOCK1020；保存商品专属内容后已配置1/未配置15，已配置页显示B1PRODUCT1020",
+      "evidence": [
+        "02-product-knowledge.png"
+      ],
+      "ledger_record": 5,
+      "verification": "manual_browser_observation",
+      "automation": "tests/b1/test_retained_data.py::test_product_knowledge_persisted (本次未运行浏览器自动化)；仅断言已保存商品专属内容，未自动验证继承或检索优先级"
+    },
+    {
+      "id": "B1-006",
+      "module": "测试窗",
+      "path": "/dashboard",
+      "title": "商品上下文、属性与知识回复",
+      "purpose": "将属性与使用知识转成可解释回复",
+      "preconditions": [
+        "登录开发站并选中天猫 / UI货品回归店铺B1_20260831_01",
+        "仅使用UIAUTO_20261020测试记录；保留既有配置"
+      ],
+      "steps": [
+        "测试窗发送测试商品",
+        "咨询容量及使用方法",
+        "点击本条AI回复知识来源"
+      ],
+      "expected": "回答包含容量、材质和禁止微波炉；来源对应测试商品及使用方法",
+      "status": "verified",
+      "actual": "发送9102026102001后回复容量500毫升及304材质；使用方法追问回复清洗、密封圈、禁止微波炉；知识来源商品ID正确，商品知识名称使用方法，回复5.5秒；余额0仍回复",
+      "evidence": [
+        "03-test-window.png"
+      ],
+      "ledger_record": 6,
+      "verification": "manual_browser_observation",
+      "automation": "manual_only"
+    },
+    {
+      "id": "B1-007",
+      "module": "测试窗",
+      "path": "/dashboard",
+      "title": "模拟订单校验及订单上下文",
+      "purpose": "给售后问题提供订单上下文",
+      "preconditions": [
+        "登录开发站并选中天猫 / UI货品回归店铺B1_20260831_01",
+        "仅使用UIAUTO_20261020测试记录；保留既有配置"
+      ],
+      "steps": [
+        "模拟订单空提交",
+        "选择测试商品和99元待发货订单",
+        "询问订单状态",
+        "查看本条来源"
+      ],
+      "expected": "金额/商品必填；订单1234567890及待发货可见；缺转接策略时给出配置提示",
+      "status": "verified",
+      "actual": "未选商品/金额0阻止提交；选测试商品、99元、待发货保存后按钮有订单；回复知识来源显示模拟订单1234567890、待发货、订单时间；转人工兜底提示未配置人工客服策略",
+      "evidence": [
+        "04-simulated-order.png"
+      ],
+      "ledger_record": 7,
+      "verification": "manual_browser_observation",
+      "automation": "manual_only"
+    },
+    {
+      "id": "B1-008",
+      "module": "测试窗",
+      "path": "/dashboard",
+      "title": "新会话隔离",
+      "purpose": "防止新会话继承旧订单和聊天",
+      "preconditions": [
+        "登录开发站并选中天猫 / UI货品回归店铺B1_20260831_01",
+        "仅使用UIAUTO_20261020测试记录；保留既有配置"
+      ],
+      "steps": [
+        "原会话设置订单后点击加号",
+        "查看新会话",
+        "切回旧会话"
+      ],
+      "expected": "新会话消息、来源为空且无订单；旧会话保留",
+      "status": "verified",
+      "actual": "加号创建新会话，聊天和知识来源为空，订单重置为无订单；原会话保留",
+      "evidence": [],
+      "ledger_record": 8,
+      "verification": "manual_browser_observation",
+      "automation": "manual_only"
+    },
+    {
+      "id": "B1-009",
+      "module": "店铺知识库",
+      "path": "/shop-knowledge",
+      "title": "必填、名称规则、指定商品关联及保存",
+      "purpose": "使指定商品使用店铺包装服务知识",
+      "preconditions": [
+        "登录开发站并选中天猫 / UI货品回归店铺B1_20260831_01",
+        "仅使用UIAUTO_20261020测试记录；保留既有配置"
+      ],
+      "steps": [
+        "店铺知识空提交",
+        "尝试非法名称",
+        "使用UIAUTO礼盒服务",
+        "关联指定商品并保存"
+      ],
+      "expected": "必填/名称规则生效；列表启用、长期有效、关联1个商品",
+      "status": "verified",
+      "actual": "空提交拦截；名称数字下划线不允许，改UIAUTO礼盒服务后通过；指定商品添加1个，列表启用/长期有效",
+      "evidence": [],
+      "ledger_record": 9,
+      "verification": "manual_browser_observation",
+      "automation": "manual_only"
+    },
+    {
+      "id": "B1-010",
+      "module": "商品分组",
+      "path": "/product-group",
+      "title": "分组绑定商品",
+      "purpose": "按业务集合管理商品",
+      "preconditions": [
+        "登录开发站并选中天猫 / UI货品回归店铺B1_20260831_01",
+        "仅使用UIAUTO_20261020测试记录；保留既有配置"
+      ],
+      "steps": [
+        "创建测试分组",
+        "添加测试商品",
+        "保持自动添加关闭",
+        "保存"
+      ],
+      "expected": "列表显示分组、商品数1及自动添加关闭",
+      "status": "verified",
+      "actual": "创建分组并添加测试商品，保存列表商品数1，自动添加商品保持关闭",
+      "evidence": [],
+      "ledger_record": 10,
+      "verification": "manual_browser_observation",
+      "automation": "tests/b1/test_retained_data.py::test_group_has_one_product (本次未运行浏览器自动化)；仅断言分组名称及商品数，未自动新增或检查自动添加"
+    },
+    {
+      "id": "B1-011",
+      "module": "商品知识库",
+      "path": "/product-knowledge",
+      "title": "配置聚合视图",
+      "purpose": "核对商品维度的知识配置统计",
+      "preconditions": [
+        "登录开发站并选中天猫 / UI货品回归店铺B1_20260831_01",
+        "仅使用UIAUTO_20261020测试记录；保留既有配置"
+      ],
+      "steps": [
+        "商品知识库找到使用方法",
+        "对照商品配置"
+      ],
+      "expected": "已配置商品数量1；入口存在不等于导入导出已验证",
+      "status": "verified",
+      "actual": "使用方法已配置商品数量1，与商品管理一致；其余知识为0，存在导入/导出/日志及逐项添加话术",
+      "evidence": [],
+      "ledger_record": 11,
+      "verification": "manual_browser_observation",
+      "automation": "manual_only"
+    },
+    {
+      "id": "B1-012",
+      "module": "货品知识库",
+      "path": "/stock-knowledge",
+      "title": "配置聚合视图",
+      "purpose": "核对货品维度的知识配置统计",
+      "preconditions": [
+        "登录开发站并选中天猫 / UI货品回归店铺B1_20260831_01",
+        "仅使用UIAUTO_20261020测试记录；保留既有配置"
+      ],
+      "steps": [
+        "货品知识库找到使用方法",
+        "对照货品配置"
+      ],
+      "expected": "已配置货品数量1；与独立配置结果一致",
+      "status": "verified",
+      "actual": "使用方法已配置货品数量1，与货品管理一致；提供导入导出及日志入口",
+      "evidence": [],
+      "ledger_record": 12,
+      "verification": "manual_browser_observation",
+      "automation": "manual_only"
+    },
+    {
+      "id": "B1-013",
+      "module": "自定义知识库",
+      "path": "/keyword",
+      "title": "关键词创建、原文回复及来源闭环",
+      "purpose": "确定性关键词原文应答",
+      "preconditions": [
+        "登录开发站并选中天猫 / UI货品回归店铺B1_20260831_01",
+        "仅使用UIAUTO_20261020测试记录；保留既有配置"
+      ],
+      "steps": [
+        "新增蓝鲸暗号场景和UIAUTO暗号验证知识",
+        "保存原文",
+        "新会话发送关键词",
+        "查看来源"
+      ],
+      "expected": "精确返回UIAUTO关键词原文回复成功，识别码B1KEY1020。；来源指向该场景和知识",
+      "status": "verified",
+      "actual": "关键词蓝鲸暗号创建后，保存原文知识UIAUTO暗号验证；新会话发送关键词原文精确返回B1KEY1020，来源自定义知识库/蓝鲸暗号/UIAUTO暗号验证，0.0秒",
+      "evidence": [
+        "05-keyword-reply.png"
+      ],
+      "ledger_record": 13,
+      "verification": "manual_browser_observation",
+      "automation": "manual_only"
+    },
+    {
+      "id": "B1-014",
+      "module": "店铺知识库",
+      "path": "/shop-knowledge",
+      "title": "指定商品知识参与回复",
+      "purpose": "使商品范围内的店铺知识参与回答",
+      "preconditions": [
+        "登录开发站并选中天猫 / UI货品回归店铺B1_20260831_01",
+        "仅使用UIAUTO_20261020测试记录；保留既有配置"
+      ],
+      "steps": [
+        "在测试窗发送测试商品",
+        "询问礼盒包装及暗号",
+        "查看回复来源"
+      ],
+      "expected": "回复包含蓝色礼盒、蓝鲸1020、备注礼盒；来源包含店铺知识",
+      "status": "verified",
+      "actual": "发送测试商品后咨询礼盒，回复蓝色礼盒/蓝鲸1020/备注礼盒；来源显示店铺知识库内容。发送商品与问题间隔很短，观察到两个相近回复，未判为重复发送缺陷",
+      "evidence": [
+        "06-shop-knowledge-reply.png"
+      ],
+      "ledger_record": 14,
+      "verification": "manual_browser_observation",
+      "automation": "manual_only"
+    },
+    {
+      "id": "B1-015",
+      "module": "场景知识库",
+      "path": "/scene",
+      "title": "场景分类和现有策略盘点",
+      "purpose": "盘点现有场景以避免覆盖既有策略",
+      "preconditions": [
+        "登录开发站并选中天猫 / UI货品回归店铺B1_20260831_01",
+        "仅使用UIAUTO_20261020测试记录；保留既有配置"
+      ],
+      "steps": [
+        "进入场景知识库",
+        "查看分类、数量及已有知识"
+      ],
+      "expected": "可见152场景8类及已有配置；不保存修改",
+      "status": "inspected",
+      "actual": "152场景，8类；存在既有功效、语音等配置，非空白店铺；保留既有策略，使用说明和包装服务已在测试窗命中",
+      "evidence": [],
+      "ledger_record": 15,
+      "verification": "manual_browser_observation",
+      "automation": "manual_only"
+    },
+    {
+      "id": "B1-016",
+      "module": "AI智能体",
+      "path": "/ai-agent",
+      "title": "应答置信度策略",
+      "purpose": "了解低匹配时的应答分流配置",
+      "preconditions": [
+        "登录开发站并选中天猫 / UI货品回归店铺B1_20260831_01",
+        "仅使用UIAUTO_20261020测试记录；保留既有配置"
+      ],
+      "steps": [
+        "AI智能体打开智能商品应答策略",
+        "读取阈值和转接配置后取消"
+      ],
+      "expected": "记录开关/阈值/低匹配策略；不把配置可见当作分流生效",
+      "status": "inspected",
+      "actual": "智能商品应答关闭；配置最低阈值0，低匹配转人工售前，支持自定义话术；未修改开关",
+      "evidence": [],
+      "ledger_record": 16,
+      "verification": "manual_browser_observation",
+      "automation": "manual_only"
+    },
+    {
+      "id": "B1-017",
+      "module": "AI智能体",
+      "path": "/ai-agent",
+      "title": "客服风格选择",
+      "purpose": "了解客服语气配置入口",
+      "preconditions": [
+        "登录开发站并选中天猫 / UI货品回归店铺B1_20260831_01",
+        "仅使用UIAUTO_20261020测试记录；保留既有配置"
+      ],
+      "steps": [
+        "打开客服风格",
+        "查看灵活型、专业型、亲切型和自定义后关闭"
+      ],
+      "expected": "选项与当前值可读；不修改",
+      "status": "inspected",
+      "actual": "预设灵活型，另有专业型/亲切型和自定义人设；未保存变更",
+      "evidence": [],
+      "ledger_record": 17,
+      "verification": "manual_browser_observation",
+      "automation": "manual_only"
+    },
+    {
+      "id": "B1-018",
+      "module": "AI智能体",
+      "path": "/ai-agent",
+      "title": "订单备注安全边界",
+      "purpose": "识别智能订单备注的权限和副作用",
+      "preconditions": [
+        "登录开发站并选中天猫 / UI货品回归店铺B1_20260831_01",
+        "仅使用UIAUTO_20261020测试记录；保留既有配置"
+      ],
+      "steps": [
+        "打开订单备注策略",
+        "查看权限提示、备注内容和插旗配置",
+        "关闭"
+      ],
+      "expected": "可见超管配置限制；无真实电商订单写入",
+      "status": "inspected",
+      "actual": "智能订单备注关闭；策略标注仅超管配置，现有测试订单备注，含备注插旗；不触发电商订单写入",
+      "evidence": [],
+      "ledger_record": 18,
+      "verification": "manual_browser_observation",
+      "automation": "manual_only"
+    },
+    {
+      "id": "B1-019",
+      "module": "智能跟单",
+      "path": "/intelligent-follow",
+      "title": "创建原文跟单任务但不对外触发",
+      "purpose": "准备不触达客户的跟单草稿",
+      "preconditions": [
+        "登录开发站并选中天猫 / UI货品回归店铺B1_20260831_01",
+        "仅使用UIAUTO_20261020测试记录；保留既有配置"
+      ],
+      "steps": [
+        "新增咨询未下单第1轮任务",
+        "空正文保存",
+        "填写原文",
+        "以未启用状态保存"
+      ],
+      "expected": "正文必填；等待1分钟；草稿未启用",
+      "status": "verified",
+      "actual": "咨询未下单第1轮，等待1分钟；空正文校验有效；新增草稿列表状态未启用，未执行实际跟单发送",
+      "evidence": [],
+      "ledger_record": 19,
+      "verification": "manual_browser_observation",
+      "automation": "manual_only"
+    },
+    {
+      "id": "B1-020",
+      "module": "智能转接",
+      "path": "/transfer",
+      "title": "分组与原因策略",
+      "purpose": "解释测试窗转接失败的配置缺口",
+      "preconditions": [
+        "登录开发站并选中天猫 / UI货品回归店铺B1_20260831_01",
+        "仅使用UIAUTO_20261020测试记录；保留既有配置"
+      ],
+      "steps": [
+        "查看4个转接场景及售前策略",
+        "打开新增条件后取消"
+      ],
+      "expected": "可读场景/原因/订单/买家条件；售前策略空；与缺人工策略提示对应",
+      "status": "inspected",
+      "actual": "4转接场景现均指向售后客服；售前策略为空，新增可选人工客服/售后转接/系统异常、订单和买家历史条件；与测试窗缺少人工客服策略提示一致",
+      "evidence": [],
+      "ledger_record": 20,
+      "verification": "manual_browser_observation",
+      "automation": "manual_only"
+    },
+    {
+      "id": "B1-021",
+      "module": "智能工单",
+      "path": "/work-order",
+      "title": "查询范围与工单列表",
+      "purpose": "了解工单查询和生成前提",
+      "preconditions": [
+        "登录开发站并选中天猫 / UI货品回归店铺B1_20260831_01",
+        "仅使用UIAUTO_20261020测试记录；保留既有配置"
+      ],
+      "steps": [
+        "进入工单",
+        "核对B1和近7天",
+        "查看状态/订单/处理人等筛选"
+      ],
+      "expected": "列表空态可解释；未触发生成不能验证处理闭环",
+      "status": "inspected",
+      "actual": "默认品牌B和目标B1店，最近7天无数据；支持场景/处理人/状态/订单筛选和导出；没有手工新增入口，实际工单生成未触发",
+      "evidence": [],
+      "ledger_record": 21,
+      "verification": "manual_browser_observation",
+      "automation": "manual_only"
+    },
+    {
+      "id": "B1-022",
+      "module": "智能尺码推荐",
+      "path": "/smart-size",
+      "title": "尺码表必填与维度选择",
+      "purpose": "了解尺码表建模能力",
+      "preconditions": [
+        "登录开发站并选中天猫 / UI货品回归店铺B1_20260831_01",
+        "仅使用UIAUTO_20261020测试记录；保留既有配置"
+      ],
+      "steps": [
+        "打开新增尺码表",
+        "空保存",
+        "查看横纵轴和范围选项",
+        "取消"
+      ],
+      "expected": "名称必填；维度选项可见；本次保温杯不保存尺码数据",
+      "status": "inspected",
+      "actual": "空保存拦截名称；横轴可选身高/体重/袖长/脚宽等，纵轴可无，支持范围、尺码值与尺码图；AI开关关闭，保温杯不适合服装尺码未保存",
+      "evidence": [],
+      "ledger_record": 22,
+      "verification": "manual_browser_observation",
+      "automation": "manual_only"
+    },
+    {
+      "id": "B1-023",
+      "module": "销冠知识审核",
+      "path": "/knowledge-review",
+      "title": "学习结果审核入口",
+      "purpose": "识别学习审核所需样本",
+      "preconditions": [
+        "登录开发站并选中天猫 / UI货品回归店铺B1_20260831_01",
+        "仅使用UIAUTO_20261020测试记录；保留既有配置"
+      ],
+      "steps": [
+        "进入销冠知识审核",
+        "查看搜索和学习开关"
+      ],
+      "expected": "学习关闭、样本为空；不能验证审核通过或拒绝",
+      "status": "inspected",
+      "actual": "按关键词/时间/状态查询，买家记录/对话/学习结果均空；销冠学习关闭，缺少真实学习样本，未验证通过/拒绝审核",
+      "evidence": [],
+      "ledger_record": 23,
+      "verification": "manual_browser_observation",
+      "automation": "manual_only"
+    },
+    {
+      "id": "B1-024",
+      "module": "自定义变量",
+      "path": "/variables",
+      "title": "当前店铺范围的变量复用",
+      "purpose": "为欢迎语复用当前店铺变量",
+      "preconditions": [
+        "登录开发站并选中天猫 / UI货品回归店铺B1_20260831_01",
+        "仅使用UIAUTO_20261020测试记录；保留既有配置"
+      ],
+      "steps": [
+        "新增UIAUTO礼盒暗号",
+        "将范围从默认全部改为当前店铺",
+        "保存"
+      ],
+      "expected": "变量蓝鲸1020可见；范围当前店铺；既有变量不变",
+      "status": "verified",
+      "actual": "新增变量UIAUTO礼盒暗号=蓝鲸1020，显式当前店铺，列表总数12→13；未改全店铺变量",
+      "evidence": [],
+      "ledger_record": 24,
+      "verification": "manual_browser_observation",
+      "automation": "tests/b1/test_retained_data.py::test_variable_is_shop_scoped (本次未运行浏览器自动化)；仅断言变量值和当前店铺范围，未自动新增变量"
+    },
+    {
+      "id": "B1-025",
+      "module": "进店欢迎语",
+      "path": "/greeting",
+      "title": "新增禁用欢迎语并插入当前店铺变量",
+      "purpose": "准备含系统变量的欢迎语草稿",
+      "preconditions": [
+        "登录开发站并选中天猫 / UI货品回归店铺B1_20260831_01",
+        "仅使用UIAUTO_20261020测试记录；保留既有配置"
+      ],
+      "steps": [
+        "新增欢迎语",
+        "清除临时正文",
+        "通过系统变量选择器插入UIAUTO礼盒暗号",
+        "禁用保存"
+      ],
+      "expected": "前缀正确且系统变量存在；未启用；变量运行时替换未验证",
+      "status": "verified",
+      "actual": "变量选择器可插入UIAUTO礼盒暗号；保存禁用草稿，未触发客户消息",
+      "evidence": [],
+      "ledger_record": 25,
+      "verification": "manual_browser_observation",
+      "automation": "manual_only"
+    },
+    {
+      "id": "B1-026",
+      "module": "屏蔽词管理",
+      "path": "/filter-words",
+      "title": "了解屏蔽词配置和空提交行为",
+      "purpose": "了解屏蔽词配置和空提交行为",
+      "preconditions": [
+        "登录开发站并选中天猫 / UI货品回归店铺B1_20260831_01",
+        "仅使用UIAUTO_20261020测试记录；保留既有配置"
+      ],
+      "steps": [
+        "打开添加屏蔽词",
+        "查看多行输入",
+        "空保存后取消"
+      ],
+      "expected": "表单留在弹窗；未观察到明确错误提示；运行拦截未验证",
+      "status": "inspected",
+      "actual": "初始无屏蔽词；新增弹窗为多行文本；空提交保留弹窗；未增加全店屏蔽规则，运行时拦截待验证",
+      "evidence": [],
+      "ledger_record": 26,
+      "verification": "manual_browser_observation",
+      "automation": "manual_only"
+    },
+    {
+      "id": "B1-027",
+      "module": "替换词管理",
+      "path": "/replace-word",
+      "title": "验证替换词的输入要求",
+      "purpose": "验证替换词的输入要求",
+      "preconditions": [
+        "登录开发站并选中天猫 / UI货品回归店铺B1_20260831_01",
+        "仅使用UIAUTO_20261020测试记录；保留既有配置"
+      ],
+      "steps": [
+        "打开添加替换词",
+        "空保存",
+        "查看关键词和替换词校验后取消"
+      ],
+      "expected": "关键词和替换词必填；该记录是创建实验之前的检查",
+      "status": "inspected",
+      "actual": "列表空；支持多行规则及替换词回车标签；空保存提示关键词不能为空、替换词不能为空；实际替换未执行",
+      "evidence": [],
+      "ledger_record": 27,
+      "verification": "manual_browser_observation",
+      "automation": "manual_only"
+    },
+    {
+      "id": "B1-028",
+      "module": "通用策略",
+      "path": "/strategy",
+      "title": "了解重复问答、历史记忆和售后范围",
+      "purpose": "了解重复问答、历史记忆和售后范围",
+      "preconditions": [
+        "登录开发站并选中天猫 / UI货品回归店铺B1_20260831_01",
+        "仅使用UIAUTO_20261020测试记录；保留既有配置"
+      ],
+      "steps": [
+        "进入通用策略",
+        "读取当前设置"
+      ],
+      "expected": "亲亲、重复问答关闭、120秒3次、记忆20句、售后90天可见；不推断边界运行结果",
+      "status": "inspected",
+      "actual": "买家称呼亲亲；重复问答关闭，120秒3次阈值；历史记忆20句；售后周期90天，不含关闭订单。未改全店策略",
+      "evidence": [],
+      "ledger_record": 28,
+      "verification": "manual_browser_observation",
+      "automation": "manual_only"
+    },
+    {
+      "id": "B1-029",
+      "module": "客服质检",
+      "path": "/quality-inspection",
+      "title": "检查质检空态及筛选入口",
+      "purpose": "检查质检空态及筛选入口",
+      "preconditions": [
+        "登录开发站并选中天猫 / UI货品回归店铺B1_20260831_01",
+        "仅使用UIAUTO_20261020测试记录；保留既有配置"
+      ],
+      "steps": [
+        "选择B1及昨日2026-10-19",
+        "展开更多筛选",
+        "查询"
+      ],
+      "expected": "昨日无记录；品牌/问题/质检/转接等筛选可用；稍后另有当日闭环记录",
+      "status": "inspected",
+      "actual": "B1昨日2026-10-19无记录；已展开品牌/问题类型/分类/质检情况/转接场景原因等6项筛选并查询；无记录无法验证详情与质检闭环",
+      "evidence": [],
+      "ledger_record": 29,
+      "verification": "manual_browser_observation",
+      "automation": "manual_only"
+    },
+    {
+      "id": "B1-030",
+      "module": "会话洞察分析",
+      "path": "/ai-quality-inspection",
+      "title": "识别AI会话洞察数据前提",
+      "purpose": "识别AI会话洞察数据前提",
+      "preconditions": [
+        "登录开发站并选中天猫 / UI货品回归店铺B1_20260831_01",
+        "仅使用UIAUTO_20261020测试记录；保留既有配置"
+      ],
+      "steps": [
+        "B1昨日范围查询",
+        "查看买家/热点/质检点/结果/复检筛选"
+      ],
+      "expected": "无质检记录；非空详情和复检待样本",
+      "status": "inspected",
+      "actual": "默认B1、昨日，无质检记录；有买家昵称、咨询热点、质检点、质检结果、复检情况筛选；详情/复检需真实记录",
+      "evidence": [],
+      "ledger_record": 30,
+      "verification": "manual_browser_observation",
+      "automation": "manual_only"
+    },
+    {
+      "id": "B1-031",
+      "module": "质检洞察分析",
+      "path": "/quality-inspection-insight",
+      "title": "了解质检洞察统计入口",
+      "purpose": "了解质检洞察统计入口",
+      "preconditions": [
+        "登录开发站并选中天猫 / UI货品回归店铺B1_20260831_01",
+        "仅使用UIAUTO_20261020测试记录；保留既有配置"
+      ],
+      "steps": [
+        "选择昨日",
+        "查询总数/命中/检出率及明细"
+      ],
+      "expected": "均为0且图表空态；非零计算尚未验证",
+      "status": "inspected",
+      "actual": "昨日质检总数0、检出数0、检出率0%；平台分布/TOP20/明细空态；已查询，无法验证非零统计口径",
+      "evidence": [],
+      "ledger_record": 31,
+      "verification": "manual_browser_observation",
+      "automation": "manual_only"
+    },
+    {
+      "id": "B1-032",
+      "module": "咨询洞察分析",
+      "path": "/consult-insight",
+      "title": "了解咨询热点分析入口",
+      "purpose": "了解咨询热点分析入口",
+      "preconditions": [
+        "登录开发站并选中天猫 / UI货品回归店铺B1_20260831_01",
+        "仅使用UIAUTO_20261020测试记录；保留既有配置"
+      ],
+      "steps": [
+        "B1昨日查询",
+        "查看热点TOP20及明细"
+      ],
+      "expected": "0及空态可见；非零热点及钻取待样本",
+      "status": "inspected",
+      "actual": "B1昨日检测0、检出0、率0%；咨询热点TOP20/明细无数据；查询可执行；非零统计及明细钻取待数据",
+      "evidence": [],
+      "ledger_record": 32,
+      "verification": "manual_browser_observation",
+      "automation": "manual_only"
+    },
+    {
+      "id": "B1-033",
+      "module": "仪表盘",
+      "path": "/dashboard",
+      "title": "验证测试行为进入接待统计",
+      "purpose": "验证测试行为进入接待统计",
+      "preconditions": [
+        "登录开发站并选中天猫 / UI货品回归店铺B1_20260831_01",
+        "仅使用UIAUTO_20261020测试记录；保留既有配置"
+      ],
+      "steps": [
+        "选择2026-10-14至20",
+        "查看接待、消息、转接",
+        "结束时再次读取"
+      ],
+      "expected": "初次2人10消息1转接50%；追加测试后消息15；停用还原测试后最终17，数值为快照而非长期常量",
+      "status": "verified",
+      "actual": "2026-10-14至20：接待2、消息10、转接1、转接率50%；接待流程说明检索优先级自定义→场景→货品→商品→店铺；只是页面说明，不等于已验证所有冲突优先级；完成后回到仪表盘，接待2、消息15、转接1、转接率50%，新增追问和替换词测试后消息量发生变化，不以早先10条作为固定断言；19:54完成停用后恢复验证，最终消息17，其余接待2、转接1、50%不变",
+      "evidence": [
+        "11-dashboard-final.png"
+      ],
+      "ledger_record": 33,
+      "verification": "manual_browser_observation",
+      "automation": "manual_only"
+    },
+    {
+      "id": "B1-034",
+      "module": "统计分析",
+      "path": "/stats",
+      "title": "验证统计与会话钻取的对应关系",
+      "purpose": "验证统计与会话钻取的对应关系",
+      "preconditions": [
+        "登录开发站并选中天猫 / UI货品回归店铺B1_20260831_01",
+        "仅使用UIAUTO_20261020测试记录；保留既有配置"
+      ],
+      "steps": [
+        "统计分析查看咨询/商品/转接",
+        "由转接统计点击查看会话"
+      ],
+      "expected": "初次接待2消息10一致；转接人工客服1人100%；带日期范围进入本次测试会话",
+      "status": "verified",
+      "actual": "咨询统计接待2消息10与仪表盘一致；商品热度5/转接率50%；转接1原因人工客服占100%；查看会话新标签页带入2026-10-14至20过滤并显示本次模拟会话",
+      "evidence": [],
+      "ledger_record": 34,
+      "verification": "manual_browser_observation",
+      "automation": "manual_only"
+    },
+    {
+      "id": "B1-035",
+      "module": "客服质检闭环",
+      "path": "/quality-inspection",
+      "title": "完成咨询到人工质检的闭环",
+      "purpose": "完成咨询到人工质检的闭环",
+      "preconditions": [
+        "登录开发站并选中天猫 / UI货品回归店铺B1_20260831_01",
+        "仅使用UIAUTO_20261020测试记录；保留既有配置"
+      ],
+      "steps": [
+        "从转接统计打开本次会话",
+        "查看详情",
+        "选中转接回复",
+        "核对来源及订单",
+        "标记已检"
+      ],
+      "expected": "测试商品和订单对应；缺策略提示可见；成功提示且已检按钮禁用",
+      "status": "verified",
+      "actual": "从转接统计钻取找到tmall_c075516ce6f64769；查看详情并选择转接消息，显示测试商品/模拟订单1234567890/待发货/4.9秒/缺人工客服策略；已标记为已检，按钮禁用且成功提示",
+      "evidence": [
+        "08-quality-checked.png"
+      ],
+      "ledger_record": 35,
+      "verification": "manual_browser_observation",
+      "automation": "manual_only"
+    },
+    {
+      "id": "B1-036",
+      "module": "跨店同步",
+      "path": "/sync",
+      "title": "了解同步的模块与覆盖边界",
+      "purpose": "了解同步的模块与覆盖边界",
+      "preconditions": [
+        "登录开发站并选中天猫 / UI货品回归店铺B1_20260831_01",
+        "仅使用UIAUTO_20261020测试记录；保留既有配置"
+      ],
+      "steps": [
+        "打开跨店同步",
+        "查看13模块、增量/覆盖及规则",
+        "取消"
+      ],
+      "expected": "规则可见；未选择其他店或提交；跨店一致性未验证",
+      "status": "inspected",
+      "actual": "13个模块可选；默认增量，可覆盖；绑定商品知识不同步，视频同平台；最近30天日志空。未选择其他店铺或提交同步",
+      "evidence": [],
+      "ledger_record": 36,
+      "verification": "manual_browser_observation",
+      "automation": "manual_only"
+    },
+    {
+      "id": "B1-037",
+      "module": "客服账号管理",
+      "path": "/service-account",
+      "title": "核实真实客服接入条件",
+      "purpose": "核实真实客服接入条件",
+      "preconditions": [
+        "登录开发站并选中天猫 / UI货品回归店铺B1_20260831_01",
+        "仅使用UIAUTO_20261020测试记录；保留既有配置"
+      ],
+      "steps": [
+        "B1客服账号查询及状态筛选"
+      ],
+      "expected": "暂无AI员工数据；测试专用1不代表真实员工已接入",
+      "status": "inspected",
+      "actual": "B1暂无AI员工数据；账号搜索及状态筛选可见；没有账号行无法验证连接与启停。测试窗使用测试专用1不证明真实AI员工接入",
+      "evidence": [],
+      "ledger_record": 37,
+      "verification": "manual_browser_observation",
+      "automation": "manual_only"
+    },
+    {
+      "id": "B1-038",
+      "module": "我的言值",
+      "path": "/yanzhi",
+      "title": "了解费用和服务可用性信息",
+      "purpose": "了解费用和服务可用性信息",
+      "preconditions": [
+        "登录开发站并选中天猫 / UI货品回归店铺B1_20260831_01",
+        "仅使用UIAUTO_20261020测试记录；保留既有配置"
+      ],
+      "steps": [
+        "查看我的言值",
+        "读取余额、套餐和授信信息"
+      ],
+      "expected": "余额0/到期套餐/授信信息可见；不根据余额推断不可回复或本次扣费",
+      "status": "inspected",
+      "actual": "余额0、套餐2026-09-24到期；页面存在授信额度且已使用，可解释0余额仍应答但未验证计费扣减。此页部分统计默认全部店铺，未导出、充值或更改",
+      "evidence": [],
+      "ledger_record": 38,
+      "verification": "manual_browser_observation",
+      "automation": "manual_only"
+    },
+    {
+      "id": "B1-039",
+      "module": "言值消耗明细",
+      "path": "/yanzhi-consume-detail",
+      "title": "识别费用明细的店铺统计范围",
+      "purpose": "识别费用明细的店铺统计范围",
+      "preconditions": [
+        "登录开发站并选中天猫 / UI货品回归店铺B1_20260831_01",
+        "仅使用UIAUTO_20261020测试记录；保留既有配置"
+      ],
+      "steps": [
+        "查看言值明细默认范围、店铺筛选和分页"
+      ],
+      "expected": "默认全部店铺；不能将其费用归属B1；不充值或导出",
+      "status": "inspected",
+      "actual": "默认全部83店铺、近7天、24条记录；支持店铺多选/业务类型/日期/分页。未将全部店铺消费视为B1消费，未验证本次测试扣减",
+      "evidence": [],
+      "ledger_record": 39,
+      "verification": "manual_browser_observation",
+      "automation": "manual_only"
+    },
+    {
+      "id": "B1-040",
+      "module": "关于我们",
+      "path": "/contact-us",
+      "title": "核对帮助支持入口",
+      "purpose": "核对帮助支持入口",
+      "preconditions": [
+        "登录开发站并选中天猫 / UI货品回归店铺B1_20260831_01",
+        "仅使用UIAUTO_20261020测试记录；保留既有配置"
+      ],
+      "steps": [
+        "查看关于我们页面"
+      ],
+      "expected": "官网及联系方式展示；不对外发送信息",
+      "status": "inspected",
+      "actual": "帮助/官网/联系方式展示；未对外联系或提交信息",
+      "evidence": [],
+      "ledger_record": 40,
+      "verification": "manual_browser_observation",
+      "automation": "manual_only"
+    },
+    {
+      "id": "B1-041",
+      "module": "测试窗",
+      "path": "/dashboard",
+      "title": "单独追问与上下文延续",
+      "purpose": "验证单次追问延续商品上下文",
+      "preconditions": [
+        "登录开发站并选中天猫 / UI货品回归店铺B1_20260831_01",
+        "仅使用UIAUTO_20261020测试记录；保留既有配置"
+      ],
+      "steps": [
+        "已有礼盒咨询上下文中单独发送再确认一次：礼盒暗号是什么？",
+        "只统计新回复"
+      ],
+      "expected": "19:39:52收到1条新AI回复且包含蓝鲸1020；此前快速连发不作为重复缺陷",
+      "status": "verified",
+      "actual": "单次发送再确认一次：礼盒暗号是什么？仅出现1条新AI回复蓝鲸1020；先前连发商品和问题产生两条回复，暂不能判定重复回复缺陷",
+      "evidence": [],
+      "ledger_record": 41,
+      "verification": "manual_browser_observation",
+      "automation": "manual_only"
+    },
+    {
+      "id": "B1-042",
+      "module": "替换词管理",
+      "path": "/replace-word",
+      "title": "必填校验、创建、生效及停用",
+      "purpose": "验证输出替换实际生效并恢复测试基线",
+      "preconditions": [
+        "登录开发站并选中天猫 / UI货品回归店铺B1_20260831_01",
+        "仅使用UIAUTO_20261020测试记录；保留既有配置"
+      ],
+      "steps": [
+        "添加B1KEY1020→B1REPLACE1020并启用",
+        "重新发送蓝鲸暗号",
+        "核对最新回复",
+        "停用规则"
+      ],
+      "expected": "19:40:38新回复包含B1REPLACE1020；停用后列表停用且操作为启用；后续运行还原已另见B1-G027",
+      "status": "verified",
+      "actual": "空提交提示关键词和替换词必填；启用B1KEY1020→B1REPLACE1020后，新发送蓝鲸暗号在19:40:38收到替换后的原文回复；随后停用，列表停用/操作启用，提示已停用",
+      "evidence": [
+        "09-replacement-reply.png",
+        "10-replacement-disabled.png"
+      ],
+      "ledger_record": 42,
+      "verification": "manual_browser_observation",
+      "automation": "tests/b1/test_retained_data.py::test_replacement_is_disabled (本次未运行浏览器自动化)；仅断言替换规则已停用，未自动发送消息验证替换效果"
+    },
+    {
+      "id": "B1-G001",
+      "module": "商品知识",
+      "path": "/product-config",
+      "title": "重复商品ID与编辑冲突",
+      "purpose": "防止同店商品重复及覆盖",
+      "preconditions": [
+        "开发站 / 天猫 / UI货品回归店铺B1_20260831_01",
+        "新增专用第二商品，避免改动本次基线"
+      ],
+      "steps": [
+        "使用新测试商品尝试重复ID",
+        "取消或保留可辨识草稿"
+      ],
+      "expected": "明确重复提示；原有属性和知识不被覆盖",
+      "status": "planned",
+      "actual": "本次未执行",
+      "evidence": [],
+      "verification": "not_run",
+      "automation": "manual_only",
+      "limitation": "新增专用第二商品，避免改动本次基线"
+    },
+    {
+      "id": "B1-G002",
+      "module": "货品管理",
+      "path": "/stock-config",
+      "title": "货品一对多关联与商品专属知识隔离",
+      "purpose": "验证多个商品复用同一货品知识，且各商品仅携带自身专属知识与对应货品知识",
+      "preconditions": [
+        "开发站 / 天猫 / UI货品回归店铺B1_20260831_01",
+        "BR-004已于2026-10-21由用户确认；准备两个B1测试商品关联同一测试货品，确认无其他商品引用"
+      ],
+      "steps": [
+        "为两个测试商品分别配置不同专属知识，为共同关联货品配置共享知识",
+        "分别在独立会话命中两个商品知识，核对各商品专属内容与同一货品共享内容的可用性",
+        "核对商品A的知识未串入商品B；若页面可观察提供给AI的知识，核对所提供内容",
+        "只更新测试货品共享知识后分别复测，并恢复测试配置"
+      ],
+      "expected": "命中商品A时提供A知识及关联货品知识；命中商品B时提供B知识及同一货品知识，不携带对方专属知识；共享知识更新可分别用于两商品问答；不要求每条最终回复复述全部知识",
+      "status": "planned",
+      "actual": "本次未执行",
+      "evidence": [],
+      "verification": "not_run",
+      "automation": "manual_only",
+      "limitation": "一对多关联及联合提供知识规则已确认、运行待验证；只使用独立测试记录，提供给AI与最终回复展示内容分别核对"
+    },
+    {
+      "id": "B1-G003",
+      "module": "商品知识",
+      "path": "/product-config",
+      "title": "知识检索顺序、分类路由与商品货品联合提供",
+      "purpose": "验证按知识库顺序与问题类型路由，商品分支同时向AI提供当前商品和关联货品知识",
+      "preconditions": [
+        "开发站 / 天猫 / UI货品回归店铺B1_20260831_01",
+        "BR-002/BR-003/BR-004已于2026-10-21由用户确认；准备独立测试知识与可恢复基线"
+      ],
+      "steps": [
+        "在自定义、场景和末级分支配置不同测试知识，记录预期命中来源",
+        "新会话提问并按自定义→场景→末级顺序逐层验证，核对本条回复及可观察的知识来源",
+        "为商品知识问题和其他问题分别准备明确样本，在末级核对商品分支与店铺库的分类路由",
+        "命中商品知识时，验证当前商品专属知识和关联货品知识均可供AI使用；可观察提供内容时核对两者",
+        "恢复自有测试配置；知识冲突及各级未命中处理不自行推断"
+      ],
+      "expected": "检索顺序为自定义→场景→商品/货品或店铺；商品库与店铺库同级，商品知识问题走商品分支，其他问题走店铺库；命中商品知识时同时提供当前商品与关联货品知识，不要求最终回复逐一复述全部知识；恢复基线",
+      "status": "planned",
+      "actual": "本次未执行",
+      "evidence": [],
+      "verification": "not_run",
+      "automation": "manual_only",
+      "limitation": "规则已确认、运行待验证；商品与货品内容冲突、各级未命中及分类错误处理仍待明确"
+    },
+    {
+      "id": "B1-G004",
+      "module": "商品知识",
+      "path": "/product-config",
+      "title": "商品下架后可咨询但不再推荐",
+      "purpose": "验证商品推荐与问答可用性",
+      "preconditions": [
+        "开发站 / 天猫 / UI货品回归店铺B1_20260831_01",
+        "BR-001已于2026-10-21由用户确认；准备第二测试商品并记录原始上架及推荐状态"
+      ],
+      "steps": [
+        "使用第二测试商品确认上架时的咨询与推荐基线",
+        "将该测试商品下架，在新会话明确咨询该商品并核对知识回答",
+        "在独立新会话触发适用的商品推荐，核对下架商品未被推荐",
+        "恢复测试商品原始状态；独立推荐开关行为另行确认"
+      ],
+      "expected": "下架后仍可咨询并回答该商品知识；推荐结果不得包含该下架商品；知识来源不串商品；恢复基线",
+      "status": "planned",
+      "actual": "本次未执行",
+      "evidence": [],
+      "verification": "not_run",
+      "automation": "manual_only",
+      "limitation": "下架规则已确认、运行待验证；独立关闭推荐开关的完整行为尚未单独明确"
+    },
+    {
+      "id": "B1-G005",
+      "module": "商品知识",
+      "path": "/product-config",
+      "title": "多商品切换与上下文隔离",
+      "purpose": "防止跨商品串答",
+      "preconditions": [
+        "开发站 / 天猫 / UI货品回归店铺B1_20260831_01",
+        "缺第二商品"
+      ],
+      "steps": [
+        "准备识别码不同的两个测试商品",
+        "同会话依次发送并询问规格"
+      ],
+      "expected": "后续回复对应当前商品；来源ID正确",
+      "status": "planned",
+      "actual": "本次未执行",
+      "evidence": [],
+      "verification": "not_run",
+      "automation": "manual_only",
+      "limitation": "缺第二商品"
+    },
+    {
+      "id": "B1-G006",
+      "module": "商品知识",
+      "path": "/product-config",
+      "title": "图片识别及失败重试",
+      "purpose": "验证图片知识可用于应答",
+      "preconditions": [
+        "开发站 / 天猫 / UI货品回归店铺B1_20260831_01",
+        "需批准具体图片上传及准备样本"
+      ],
+      "steps": [
+        "上传专用无个人信息图片",
+        "识别",
+        "核对属性",
+        "用损坏图片测试错误"
+      ],
+      "expected": "识别结果可核对；失败不写入错误知识",
+      "status": "planned",
+      "actual": "本次未执行",
+      "evidence": [],
+      "verification": "not_run",
+      "automation": "manual_only",
+      "limitation": "需批准具体图片上传及准备样本"
+    },
+    {
+      "id": "B1-G007",
+      "module": "商品知识库",
+      "path": "/product-knowledge",
+      "title": "导入预检及部分错误反馈",
+      "purpose": "验证批量知识的数据质量",
+      "preconditions": [
+        "开发站 / 天猫 / UI货品回归店铺B1_20260831_01",
+        "上传需具体文件授权，保留原数据"
+      ],
+      "steps": [
+        "下载模板",
+        "准备有效与非法行",
+        "在测试范围导入",
+        "核对日志和数量"
+      ],
+      "expected": "错误行明确；成功行可追溯；计数一致",
+      "status": "planned",
+      "actual": "本次未执行",
+      "evidence": [],
+      "verification": "not_run",
+      "automation": "manual_only",
+      "limitation": "上传需具体文件授权，保留原数据"
+    },
+    {
+      "id": "B1-G008",
+      "module": "货品知识库",
+      "path": "/stock-knowledge",
+      "title": "知识批量导出与再导入",
+      "purpose": "验证货品知识可迁移",
+      "preconditions": [
+        "开发站 / 天猫 / UI货品回归店铺B1_20260831_01",
+        "本次未导出或上传"
+      ],
+      "steps": [
+        "仅选择测试货品导出",
+        "核对字段",
+        "使用新测试编码导入"
+      ],
+      "expected": "字段、编码和内容完整对应；无非测试记录",
+      "status": "planned",
+      "actual": "本次未执行",
+      "evidence": [],
+      "verification": "not_run",
+      "automation": "manual_only",
+      "limitation": "本次未导出或上传"
+    },
+    {
+      "id": "B1-G009",
+      "module": "商品分组",
+      "path": "/product-group",
+      "title": "静态与自动分组边界",
+      "purpose": "验证新增商品的归组条件",
+      "preconditions": [
+        "开发站 / 天猫 / UI货品回归店铺B1_20260831_01",
+        "在自有分组完成并恢复开关"
+      ],
+      "steps": [
+        "创建专用规则分组并开启自动添加",
+        "新增符合及不符合条件商品"
+      ],
+      "expected": "仅匹配商品进入分组；重复运行不重复添加",
+      "status": "planned",
+      "actual": "本次未执行",
+      "evidence": [],
+      "verification": "not_run",
+      "automation": "manual_only",
+      "limitation": "在自有分组完成并恢复开关"
+    },
+    {
+      "id": "B1-G010",
+      "module": "店铺知识库",
+      "path": "/shop-knowledge",
+      "title": "指定商品范围负例",
+      "purpose": "防止包装知识错误应用其他商品",
+      "preconditions": [
+        "开发站 / 天猫 / UI货品回归店铺B1_20260831_01",
+        "缺对照商品"
+      ],
+      "steps": [
+        "准备不在礼盒知识范围内的第二商品",
+        "新会话询问同样包装问题"
+      ],
+      "expected": "不引用UIAUTO礼盒服务；不返回专属识别码",
+      "status": "planned",
+      "actual": "本次未执行",
+      "evidence": [],
+      "verification": "not_run",
+      "automation": "manual_only",
+      "limitation": "缺对照商品"
+    },
+    {
+      "id": "B1-G011",
+      "module": "店铺知识库",
+      "path": "/shop-knowledge",
+      "title": "生效时间和停启边界",
+      "purpose": "验证过期及未来知识不可用",
+      "preconditions": [
+        "开发站 / 天猫 / UI货品回归店铺B1_20260831_01",
+        "保留本次已启用基线"
+      ],
+      "steps": [
+        "创建独立测试知识",
+        "分别设未来/已过期/停用/启用",
+        "新会话咨询"
+      ],
+      "expected": "仅有效且启用配置参与回复；来源对应",
+      "status": "planned",
+      "actual": "本次未执行",
+      "evidence": [],
+      "verification": "not_run",
+      "automation": "manual_only",
+      "limitation": "保留本次已启用基线"
+    },
+    {
+      "id": "B1-G012",
+      "module": "场景知识库",
+      "path": "/scene",
+      "title": "条件组合及多轮知识",
+      "purpose": "验证场景与订单条件共同生效",
+      "preconditions": [
+        "开发站 / 天猫 / UI货品回归店铺B1_20260831_01",
+        "不覆盖现有152场景配置"
+      ],
+      "steps": [
+        "在自有场景设置互斥订单条件和分次内容",
+        "切换模拟订单并追问"
+      ],
+      "expected": "条件命中正确；分次顺序及上限可解释",
+      "status": "planned",
+      "actual": "本次未执行",
+      "evidence": [],
+      "verification": "not_run",
+      "automation": "manual_only",
+      "limitation": "不覆盖现有152场景配置"
+    },
+    {
+      "id": "B1-G013",
+      "module": "自定义知识库",
+      "path": "/keyword",
+      "title": "匹配类型及关键词冲突",
+      "purpose": "验证精确、包含等已支持规则",
+      "preconditions": [
+        "开发站 / 天猫 / UI货品回归店铺B1_20260831_01",
+        "先以UI实际支持选项为准"
+      ],
+      "steps": [
+        "检查实际可选匹配方式",
+        "准备多关键词",
+        "发送相邻词、完整词、冲突词"
+      ],
+      "expected": "命中符合所选方式；来源可说明优先级",
+      "status": "planned",
+      "actual": "本次未执行",
+      "evidence": [],
+      "verification": "not_run",
+      "automation": "manual_only",
+      "limitation": "先以UI实际支持选项为准"
+    },
+    {
+      "id": "B1-G014",
+      "module": "自定义知识库",
+      "path": "/keyword",
+      "title": "停用后不再命中",
+      "purpose": "验证知识启停运行效果",
+      "preconditions": [
+        "开发站 / 天猫 / UI货品回归店铺B1_20260831_01",
+        "避免停用本次回归基线"
+      ],
+      "steps": [
+        "创建独立标记关键词",
+        "启用测试",
+        "停用后新会话重发"
+      ],
+      "expected": "停用后最新回复及来源不含该标记",
+      "status": "planned",
+      "actual": "本次未执行",
+      "evidence": [],
+      "verification": "not_run",
+      "automation": "manual_only",
+      "limitation": "避免停用本次回归基线"
+    },
+    {
+      "id": "B1-G015",
+      "module": "AI智能体",
+      "path": "/ai-agent",
+      "title": "匹配置信度阈值边界",
+      "purpose": "验证低匹配的实际分流",
+      "preconditions": [
+        "开发站 / 天猫 / UI货品回归店铺B1_20260831_01",
+        "需独立配置或可恢复快照"
+      ],
+      "steps": [
+        "准备高低匹配语句及测试转接策略",
+        "在专用配置测阈值两侧"
+      ],
+      "expected": "低于阈值按策略处理；命中阈值边界规则明确",
+      "status": "planned",
+      "actual": "本次未执行",
+      "evidence": [],
+      "verification": "not_run",
+      "automation": "manual_only",
+      "limitation": "需独立配置或可恢复快照"
+    },
+    {
+      "id": "B1-G016",
+      "module": "AI智能体",
+      "path": "/ai-agent",
+      "title": "客服风格实际输出",
+      "purpose": "验证风格对回复的影响",
+      "preconditions": [
+        "开发站 / 天猫 / UI货品回归店铺B1_20260831_01",
+        "本次仅看选项，未保存风格"
+      ],
+      "steps": [
+        "使用相同知识和固定问题，在专用测试配置分别设风格后发送"
+      ],
+      "expected": "语气符合设置且事实内容不丢失",
+      "status": "planned",
+      "actual": "本次未执行",
+      "evidence": [],
+      "verification": "not_run",
+      "automation": "manual_only",
+      "limitation": "本次仅看选项，未保存风格"
+    },
+    {
+      "id": "B1-G017",
+      "module": "智能跟单",
+      "path": "/intelligent-follow",
+      "title": "等待时间与订单状态取消",
+      "purpose": "防止错误跟单",
+      "preconditions": [
+        "开发站 / 天猫 / UI货品回归店铺B1_20260831_01",
+        "需可控测试接收端，不能触达真实买家"
+      ],
+      "steps": [
+        "仅在隔离测试会话启用独立任务",
+        "等待到期前后并切换订单"
+      ],
+      "expected": "到期最多发送一次；已付款或不匹配时取消",
+      "status": "planned",
+      "actual": "本次未执行",
+      "evidence": [],
+      "verification": "not_run",
+      "automation": "manual_only",
+      "limitation": "需可控测试接收端，不能触达真实买家"
+    },
+    {
+      "id": "B1-G018",
+      "module": "智能跟单",
+      "path": "/intelligent-follow",
+      "title": "多轮间隔与幂等",
+      "purpose": "防止重试重复触达",
+      "preconditions": [
+        "开发站 / 天猫 / UI货品回归店铺B1_20260831_01",
+        "需要隔离接收端及时间条件"
+      ],
+      "steps": [
+        "准备两轮跟单",
+        "中断再恢复测试会话",
+        "检查轮次与发送记录"
+      ],
+      "expected": "各轮间隔正确；相同轮次不重复发送",
+      "status": "planned",
+      "actual": "本次未执行",
+      "evidence": [],
+      "verification": "not_run",
+      "automation": "manual_only",
+      "limitation": "需要隔离接收端及时间条件"
+    },
+    {
+      "id": "B1-G019",
+      "module": "智能转接",
+      "path": "/transfer",
+      "title": "人工客服策略完整闭环",
+      "purpose": "消除已观察到的缺策略兜底",
+      "preconditions": [
+        "开发站 / 天猫 / UI货品回归店铺B1_20260831_01",
+        "真实接收端与配置范围须确认"
+      ],
+      "steps": [
+        "为测试专用接收端配置人工客服原因",
+        "重发订单状态问题",
+        "查看来源及统计"
+      ],
+      "expected": "不再提示缺少策略；路由、原因、接收端与统计一致",
+      "status": "planned",
+      "actual": "本次未执行",
+      "evidence": [],
+      "verification": "not_run",
+      "automation": "manual_only",
+      "limitation": "真实接收端与配置范围须确认"
+    },
+    {
+      "id": "B1-G020",
+      "module": "智能工单",
+      "path": "/work-order",
+      "title": "工单创建到处理闭环",
+      "purpose": "验证AI结果成为可处理工单",
+      "preconditions": [
+        "开发站 / 天猫 / UI货品回归店铺B1_20260831_01",
+        "没有手工新增入口，需触发条件和处理权限"
+      ],
+      "steps": [
+        "使用隔离订单触发已配置工单场景",
+        "查询、查看详情并处理"
+      ],
+      "expected": "仅生成1条；订单/场景/状态/处理人及日志一致",
+      "status": "planned",
+      "actual": "本次未执行",
+      "evidence": [],
+      "verification": "not_run",
+      "automation": "manual_only",
+      "limitation": "没有手工新增入口，需触发条件和处理权限"
+    },
+    {
+      "id": "B1-G021",
+      "module": "智能尺码推荐",
+      "path": "/smart-size",
+      "title": "尺码范围端点与未知值",
+      "purpose": "验证推荐可计算且不会臆测",
+      "preconditions": [
+        "开发站 / 天猫 / UI货品回归店铺B1_20260831_01",
+        "当前商品为保温杯；缺服装样本"
+      ],
+      "steps": [
+        "新增服装测试商品和尺码表",
+        "测试上下界、空值、超范围及横纵轴组合"
+      ],
+      "expected": "端点归属明确；未知或超范围给出合理提示",
+      "status": "planned",
+      "actual": "本次未执行",
+      "evidence": [],
+      "verification": "not_run",
+      "automation": "manual_only",
+      "limitation": "当前商品为保温杯；缺服装样本"
+    },
+    {
+      "id": "B1-G022",
+      "module": "销冠知识审核",
+      "path": "/knowledge-review",
+      "title": "审核通过、拒绝及重复审核",
+      "purpose": "验证学习结果入库控制",
+      "preconditions": [
+        "开发站 / 天猫 / UI货品回归店铺B1_20260831_01",
+        "学习关闭且没有样本"
+      ],
+      "steps": [
+        "准备测试学习样本",
+        "分别通过和拒绝",
+        "刷新再执行同动作"
+      ],
+      "expected": "通过内容可追溯入库；拒绝不入库；状态一致且无重复",
+      "status": "planned",
+      "actual": "本次未执行",
+      "evidence": [],
+      "verification": "not_run",
+      "automation": "manual_only",
+      "limitation": "学习关闭且没有样本"
+    },
+    {
+      "id": "B1-G023",
+      "module": "进店欢迎语",
+      "path": "/greeting",
+      "title": "首次访问与再次访问触发",
+      "purpose": "验证欢迎语发送时机",
+      "preconditions": [
+        "开发站 / 天猫 / UI货品回归店铺B1_20260831_01",
+        "现有草稿禁用；不向真实买家发送"
+      ],
+      "steps": [
+        "在隔离测试接收端启用独立欢迎语",
+        "新会话进入并重复访问"
+      ],
+      "expected": "首次按配置触发；重复访问遵循频率策略",
+      "status": "planned",
+      "actual": "本次未执行",
+      "evidence": [],
+      "verification": "not_run",
+      "automation": "manual_only",
+      "limitation": "现有草稿禁用；不向真实买家发送"
+    },
+    {
+      "id": "B1-G024",
+      "module": "进店欢迎语",
+      "path": "/greeting",
+      "title": "系统变量运行替换",
+      "purpose": "验证插入变量不是纯文本",
+      "preconditions": [
+        "开发站 / 天猫 / UI货品回归店铺B1_20260831_01",
+        "本次只验证系统变量插入和禁用持久化"
+      ],
+      "steps": [
+        "在隔离会话启用独立欢迎语",
+        "触发消息并读取最新回复"
+      ],
+      "expected": "解析出蓝鲸1020；不展示未解析的变量名或模板符号",
+      "status": "planned",
+      "actual": "本次未执行",
+      "evidence": [],
+      "verification": "not_run",
+      "automation": "manual_only",
+      "limitation": "本次只验证系统变量插入和禁用持久化"
+    },
+    {
+      "id": "B1-G025",
+      "module": "自定义变量",
+      "path": "/variables",
+      "title": "同名变量与店铺范围隔离",
+      "purpose": "防止跨店变量污染",
+      "preconditions": [
+        "开发站 / 天猫 / UI货品回归店铺B1_20260831_01",
+        "不得直接操作其他店铺，需另行指定范围"
+      ],
+      "steps": [
+        "在获准的第二测试店设置同名不同值",
+        "分别解析当前店变量"
+      ],
+      "expected": "各店只使用本店值；全局优先级符合约定",
+      "status": "planned",
+      "actual": "本次未执行",
+      "evidence": [],
+      "verification": "not_run",
+      "automation": "manual_only",
+      "limitation": "不得直接操作其他店铺，需另行指定范围"
+    },
+    {
+      "id": "B1-G026",
+      "module": "屏蔽词管理",
+      "path": "/filter-words",
+      "title": "屏蔽词输入与回复拦截",
+      "purpose": "验证敏感词策略运行",
+      "preconditions": [
+        "开发站 / 天猫 / UI货品回归店铺B1_20260831_01",
+        "需明确屏蔽对象及作用范围"
+      ],
+      "steps": [
+        "仅添加自有唯一标记",
+        "分别在买家输入、知识回复中出现",
+        "新会话测试"
+      ],
+      "expected": "按产品规则拦截且来源或原因可解释；不误伤无关语句",
+      "status": "planned",
+      "actual": "本次未执行",
+      "evidence": [],
+      "verification": "not_run",
+      "automation": "manual_only",
+      "limitation": "需明确屏蔽对象及作用范围"
+    },
+    {
+      "id": "B1-G027",
+      "module": "替换词管理",
+      "path": "/replace-word",
+      "title": "停用后输出恢复",
+      "purpose": "验证替换开关控制输出",
+      "preconditions": [
+        "开发站 / 天猫 / UI货品回归店铺B1_20260831_01",
+        "本次已验证停用保存，未在停用后重发"
+      ],
+      "steps": [
+        "确认B1KEY1020替换规则停用",
+        "在保留测试会话新发送蓝鲸暗号",
+        "核对19:54:23的最新回复"
+      ],
+      "expected": "恢复包含B1KEY1020且无B1REPLACE1020",
+      "status": "verified",
+      "actual": "规则已停用后，在保留测试会话tmall_c95a35f6b5aa4f21于19:54:22新发送蓝鲸暗号，19:54:23最新AI回复恢复UIAUTO关键词原文回复成功，识别码B1KEY1020。",
+      "evidence": [
+        "12-replacement-restored.png"
+      ],
+      "verification": "manual_browser_observation",
+      "automation": "manual_only",
+      "limitation": "已验证同一保留会话在规则停用后恢复；未追加新会话的对照实验",
+      "ledger_record": 43
+    },
+    {
+      "id": "B1-G028",
+      "module": "替换词管理",
+      "path": "/replace-word",
+      "title": "重叠替换和多替换词",
+      "purpose": "验证替换顺序与循环防护",
+      "preconditions": [
+        "开发站 / 天猫 / UI货品回归店铺B1_20260831_01",
+        "使用独立标记，完成后停用"
+      ],
+      "steps": [
+        "新增独立重叠标记规则",
+        "发送同时包含两标记的原文",
+        "测试多替换值"
+      ],
+      "expected": "顺序符合规则；不循环；每次输出可解释",
+      "status": "planned",
+      "actual": "本次未执行",
+      "evidence": [],
+      "verification": "not_run",
+      "automation": "manual_only",
+      "limitation": "使用独立标记，完成后停用"
+    },
+    {
+      "id": "B1-G029",
+      "module": "通用策略",
+      "path": "/strategy",
+      "title": "重复问答120秒及3次边界",
+      "purpose": "验证重复阈值触发",
+      "preconditions": [
+        "开发站 / 天猫 / UI货品回归店铺B1_20260831_01",
+        "当前关闭，未更改全店策略"
+      ],
+      "steps": [
+        "在隔离配置启用重复问答",
+        "测第2/3/4次及120秒内外"
+      ],
+      "expected": "次数与时间端点行为符合约定；不误拦不同问题",
+      "status": "planned",
+      "actual": "本次未执行",
+      "evidence": [],
+      "verification": "not_run",
+      "automation": "manual_only",
+      "limitation": "当前关闭，未更改全店策略"
+    },
+    {
+      "id": "B1-G030",
+      "module": "通用策略",
+      "path": "/strategy",
+      "title": "历史记忆20句边界",
+      "purpose": "验证记忆裁剪及上下文安全",
+      "preconditions": [
+        "开发站 / 天猫 / UI货品回归店铺B1_20260831_01",
+        "需明确按消息还是轮次计数"
+      ],
+      "steps": [
+        "准备具有识别码的多轮对话",
+        "测第19/20/21句后追问",
+        "再开新会话"
+      ],
+      "expected": "在窗口内记忆一致；新会话不继承；超窗行为可解释",
+      "status": "planned",
+      "actual": "本次未执行",
+      "evidence": [],
+      "verification": "not_run",
+      "automation": "manual_only",
+      "limitation": "需明确按消息还是轮次计数"
+    },
+    {
+      "id": "B1-G031",
+      "module": "通用策略",
+      "path": "/strategy",
+      "title": "售后90天及关闭订单边界",
+      "purpose": "验证售前售后分流",
+      "preconditions": [
+        "开发站 / 天猫 / UI货品回归店铺B1_20260831_01",
+        "测试窗可设置的订单日期能力尚未确认"
+      ],
+      "steps": [
+        "模拟89/90/91天订单及关闭订单",
+        "发送同一售后问题"
+      ],
+      "expected": "分流与有效售后周期及排除关闭订单一致",
+      "status": "planned",
+      "actual": "本次未执行",
+      "evidence": [],
+      "verification": "not_run",
+      "automation": "manual_only",
+      "limitation": "测试窗可设置的订单日期能力尚未确认"
+    },
+    {
+      "id": "B1-G032",
+      "module": "客服质检闭环",
+      "path": "/quality-inspection",
+      "title": "筛选组合和再次进入已检记录",
+      "purpose": "验证质检状态可追溯",
+      "preconditions": [
+        "开发站 / 天猫 / UI货品回归店铺B1_20260831_01",
+        "本次已标记成功，未刷新后复核"
+      ],
+      "steps": [
+        "按B1/日期/已检筛选并进入本次会话",
+        "对照已检状态和订单"
+      ],
+      "expected": "只返回匹配记录；已检持续；详情字段不丢失",
+      "status": "planned",
+      "actual": "本次未执行",
+      "evidence": [],
+      "verification": "not_run",
+      "automation": "manual_only",
+      "limitation": "本次已标记成功，未刷新后复核"
+    },
+    {
+      "id": "B1-G033",
+      "module": "会话洞察分析",
+      "path": "/ai-quality-inspection",
+      "title": "AI质检及复检状态",
+      "purpose": "验证自动质检结果和复检闭环",
+      "preconditions": [
+        "开发站 / 天猫 / UI货品回归店铺B1_20260831_01",
+        "无AI质检结果，需处理任务和样本"
+      ],
+      "steps": [
+        "准备专用不合格会话",
+        "运行已有质检流程",
+        "查看命中点并复检"
+      ],
+      "expected": "规则/证据/结果对应；复检状态和列表同步",
+      "status": "planned",
+      "actual": "本次未执行",
+      "evidence": [],
+      "verification": "not_run",
+      "automation": "manual_only",
+      "limitation": "无AI质检结果，需处理任务和样本"
+    },
+    {
+      "id": "B1-G034",
+      "module": "质检洞察分析",
+      "path": "/quality-inspection-insight",
+      "title": "非零命中和检出率计算",
+      "purpose": "验证图表分子分母",
+      "preconditions": [
+        "开发站 / 天猫 / UI货品回归店铺B1_20260831_01",
+        "不能直接用人工已检推断AI检出"
+      ],
+      "steps": [
+        "准备已知总量和命中量的测试批次",
+        "固定B1和时间范围查询并钻取"
+      ],
+      "expected": "比率和TOP20与明细一致；空分母不报错",
+      "status": "planned",
+      "actual": "本次未执行",
+      "evidence": [],
+      "verification": "not_run",
+      "automation": "manual_only",
+      "limitation": "不能直接用人工已检推断AI检出"
+    },
+    {
+      "id": "B1-G035",
+      "module": "咨询洞察分析",
+      "path": "/consult-insight",
+      "title": "热点归类及详情钻取",
+      "purpose": "验证问题进入咨询洞察",
+      "preconditions": [
+        "开发站 / 天猫 / UI货品回归店铺B1_20260831_01",
+        "需明确分析延迟及统计口径"
+      ],
+      "steps": [
+        "准备主题不同的测试会话并等待已知分析周期",
+        "查询热点和明细"
+      ],
+      "expected": "计数和归类一致；钻取落到正确会话",
+      "status": "planned",
+      "actual": "本次未执行",
+      "evidence": [],
+      "verification": "not_run",
+      "automation": "manual_only",
+      "limitation": "需明确分析延迟及统计口径"
+    },
+    {
+      "id": "B1-G036",
+      "module": "仪表盘",
+      "path": "/dashboard",
+      "title": "跨日边界及无重复计数",
+      "purpose": "验证增量统计口径",
+      "preconditions": [
+        "开发站 / 天猫 / UI货品回归店铺B1_20260831_01",
+        "不得把UI观察时差当作统计缺陷"
+      ],
+      "steps": [
+        "在明确时区下记录前后快照",
+        "新增一条独立消息",
+        "等待刷新并核对"
+      ],
+      "expected": "变化符合消息/接待去重规则；跨日无遗漏",
+      "status": "planned",
+      "actual": "本次未执行",
+      "evidence": [],
+      "verification": "not_run",
+      "automation": "manual_only",
+      "limitation": "不得把UI观察时差当作统计缺陷"
+    },
+    {
+      "id": "B1-G037",
+      "module": "统计分析",
+      "path": "/stats",
+      "title": "知识命中统计与消息来源对账",
+      "purpose": "解释已有来源但知识统计为空",
+      "preconditions": [
+        "开发站 / 天猫 / UI货品回归店铺B1_20260831_01",
+        "目前知识统计空，不能断定没有命中或直接判缺陷"
+      ],
+      "steps": [
+        "固定B1、日期及已命中样本",
+        "等待统计周期",
+        "逐条对照知识维度"
+      ],
+      "expected": "口径和处理时延明确；匹配的命中可追溯",
+      "status": "planned",
+      "actual": "本次未执行",
+      "evidence": [],
+      "verification": "not_run",
+      "automation": "manual_only",
+      "limitation": "目前知识统计空，不能断定没有命中或直接判缺陷"
+    },
+    {
+      "id": "B1-G038",
+      "module": "跨店同步",
+      "path": "/sync",
+      "title": "增量与覆盖的跨店一致性",
+      "purpose": "验证同步不会误覆盖",
+      "preconditions": [
+        "开发站 / 天猫 / UI货品回归店铺B1_20260831_01",
+        "跨店写入未授权，当前未执行"
+      ],
+      "steps": [
+        "指定获准的第二测试店",
+        "先准备冲突值",
+        "仅选择自有测试模块执行增量/覆盖"
+      ],
+      "expected": "结果符合模式；绑定商品排除规则和日志可核对",
+      "status": "planned",
+      "actual": "本次未执行",
+      "evidence": [],
+      "verification": "not_run",
+      "automation": "manual_only",
+      "limitation": "跨店写入未授权，当前未执行"
+    },
+    {
+      "id": "B1-G039",
+      "module": "客服账号管理",
+      "path": "/service-account",
+      "title": "真实AI员工接入与停启",
+      "purpose": "验证接待链路而非测试专用身份",
+      "preconditions": [
+        "开发站 / 天猫 / UI货品回归店铺B1_20260831_01",
+        "当前暂无AI员工数据；需专用账号"
+      ],
+      "steps": [
+        "使用专用测试客服账号按已支持接入方式建立连接",
+        "检查状态并隔离收发"
+      ],
+      "expected": "状态和接待记录一致；停用后无新接待",
+      "status": "planned",
+      "actual": "本次未执行",
+      "evidence": [],
+      "verification": "not_run",
+      "automation": "manual_only",
+      "limitation": "当前暂无AI员工数据；需专用账号"
+    },
+    {
+      "id": "B1-G040",
+      "module": "我的言值",
+      "path": "/yanzhi",
+      "title": "授信、套餐及用量扣减",
+      "purpose": "验证0余额仍回复的计费原因",
+      "preconditions": [
+        "开发站 / 天猫 / UI货品回归店铺B1_20260831_01",
+        "需明确计费说明，绝不执行充值或购买"
+      ],
+      "steps": [
+        "固定B1及业务范围记录用量前值",
+        "执行一条隔离咨询",
+        "等待计费落账对账"
+      ],
+      "expected": "余额/授信/套餐扣减符合已确认规则",
+      "status": "planned",
+      "actual": "本次未执行",
+      "evidence": [],
+      "verification": "not_run",
+      "automation": "manual_only",
+      "limitation": "需明确计费说明，绝不执行充值或购买"
+    },
+    {
+      "id": "B1-G041",
+      "module": "言值消耗明细",
+      "path": "/yanzhi-consume-detail",
+      "title": "B1单店费用与分页对账",
+      "purpose": "防止将全部店铺费用归属B1",
+      "preconditions": [
+        "开发站 / 天猫 / UI货品回归店铺B1_20260831_01",
+        "当前默认全部店铺数据不构成B1证据"
+      ],
+      "steps": [
+        "只筛B1和固定时间",
+        "查看业务类型、分页和费用汇总"
+      ],
+      "expected": "每条属于B1；分页无重漏；合计与同口径汇总一致",
+      "status": "planned",
+      "actual": "本次未执行",
+      "evidence": [],
+      "verification": "not_run",
+      "automation": "manual_only",
+      "limitation": "当前默认全部店铺数据不构成B1证据"
+    },
+    {
+      "id": "B1-G042",
+      "module": "关于我们",
+      "path": "/contact-us",
+      "title": "帮助链接可达性",
+      "purpose": "验证用户能查到支持说明",
+      "preconditions": [
+        "开发站 / 天猫 / UI货品回归店铺B1_20260831_01",
+        "本次只看入口，未做外部站点验证"
+      ],
+      "steps": [
+        "在新临时标签打开页面展示的帮助或官网",
+        "核对落地页后关闭"
+      ],
+      "expected": "目标可访问且名称相符；不提交联系表单",
+      "status": "planned",
+      "actual": "本次未执行",
+      "evidence": [],
+      "verification": "not_run",
+      "automation": "manual_only",
+      "limitation": "本次只看入口，未做外部站点验证"
+    }
+  ],
+  "business_rules": {
+    "confirmed_on": "2026-10-21",
+    "source": "用户在当前会话中明确说明；业务规则确认，不代表浏览器实测通过",
+    "rules": [
+      {
+        "id": "BR-001",
+        "description": "商品下架后仍可继续咨询该商品，但不再推荐该商品。"
+      },
+      {
+        "id": "BR-002",
+        "description": "检索按自定义知识库 → 场景知识库 → 商品/货品知识库或店铺知识库选择命中分支；商品分支命中时，商品知识与关联货品知识会一起提供给AI，不应将单库取用理解为商品与货品只能二选一。"
+      },
+      {
+        "id": "BR-003",
+        "description": "商品知识库和店铺知识库处于同一级；AI判断属于商品知识的问题走商品知识库，其他问题走店铺知识库，不按商品库高于店铺库的线性顺序处理。"
+      },
+      {
+        "id": "BR-004",
+        "description": "一个货品可以关联多个商品；命中某个商品知识时，将该商品知识和对应关联货品知识一起提供给AI。"
+      }
+    ],
+    "remaining_uncertainties": [
+      "商品知识与关联货品知识内容冲突时，AI如何处理冲突尚未明确；一起提供不等于已确认谁覆盖谁。",
+      "各级未命中、问题分类错误或所选知识分支不足以回答时的具体处理尚未明确。",
+      "独立关闭推荐开关但商品仍上架时的完整行为尚未单独明确。"
+    ]
+  }
+}

@@ -1,0 +1,243 @@
+- complementary:
+  - menu:
+    - menuitem "book 知识库管理" [expanded]:
+      - img "book":
+      - generic: 知识库管理
+    - menu:
+      - menuitem "商品管理":
+        - link "商品管理":
+          - /url: /product-config
+      - menuitem "商品知识库":
+        - link "商品知识库":
+          - /url: /product-knowledge
+      - menuitem "商品分组":
+        - link "商品分组":
+          - /url: /product-group
+      - menuitem "货品管理":
+        - link "货品管理":
+          - /url: /stock-config
+      - menuitem "货品知识库":
+        - link "货品知识库":
+          - /url: /stock-knowledge
+      - menuitem "店铺知识库":
+        - link "店铺知识库":
+          - /url: /shop-knowledge
+      - menuitem "场景知识库":
+        - link "场景知识库":
+          - /url: /scene
+      - menuitem "自定义知识库":
+        - link "自定义知识库":
+          - /url: /keyword
+    - menuitem "robot AI智能中心":
+      - img "robot":
+      - generic: AI智能中心
+    - menuitem "filter 策略管理":
+      - img "filter":
+      - generic: 策略管理
+    - menuitem "audit 质检中心":
+      - img "audit":
+      - generic: 质检中心
+    - menuitem "bar-chart VOC洞察分析":
+      - img "bar-chart":
+      - generic: VOC洞察分析
+    - menuitem "dashboard 数据概览":
+      - img "dashboard":
+      - generic: 数据概览
+    - menuitem "sync 设置":
+      - img "sync":
+      - generic: 设置
+    - menuitem "pay-circle 我的言值":
+      - img "pay-circle":
+      - generic: 我的言值
+    - menuitem "tags 关于我们":
+      - link "tags 关于我们":
+        - /url: /contact-us
+        - img "tags":
+        - text: 关于我们
+- banner
+- banner:
+  - img "logo"
+  - tablist:
+    - tab "场景知识库" [selected]
+  - tabpanel "场景知识库"
+  - img "heart":
+  - generic: "剩余言值: 0.0000"
+  - button "充值":
+    - generic: 充值
+  - img "search":
+  - textbox "全店铺搜索"
+  - img "file-text":
+  - generic: 使用文档
+  - img "down":
+  - combobox
+  - img "淘宝/天猫"
+  - generic "UI货品回归店铺B1_20260831_01"
+  - img "user":
+  - generic: 王景坤
+  - img "down":
+- main:
+  - combobox
+  - generic "场景名称"
+  - textbox "请输入内容": 询问工作时间
+  - button "close-circle":
+    - img "close-circle":
+  - img "search":
+  - button "file-text 操作日志":
+    - img "file-text":
+    - generic: 操作日志
+  - button "plus 订阅行业包":
+    - img "plus":
+    - generic: 订阅行业包
+  - generic: 全部分类 (1)
+  - generic: 聊天互动 (1)
+  - text: 更新时间排序
+  - img "down":
+  - generic: 询问工作时间
+  - generic: 行业通用
+  - img "热度"
+  - generic: "0"
+  - generic: 更新时间：
+  - generic: 2026-10-27 15:14
+  - generic: 问法示例：
+  - generic: 几点在线/客服几点上班呢/你们几点上班
+  - generic: 场景同步
+  - generic: 编辑问法示例
+  - generic: 新增知识
+  - generic: 满足条件
+  - generic: "关联商品:"
+  - generic: 已选择全部商品
+  - generic: "订单状态:"
+  - generic: 未下单、未付款、待发货(已付款)、待收货、未评价(已签收)、已评价、已关闭(已取消)
+  - generic: "生效时间:"
+  - generic: 长期有效
+  - generic: 人工客服在线时间与服务安排
+  - button "edit 编辑":
+    - img "edit":
+    - generic: 编辑
+  - button "delete 删除":
+    - img "delete":
+    - generic: 删除
+  - switch "开 关" [checked]:
+    - generic: 开
+    - generic: 关
+  - generic: 第1次
+  - text: 1. 人工客服在线时间：每天 9:00-22:00（按店铺实际时间填写）。
+  - text: 2. 在线时间内可直接发送“转人工”，系统会转接人工客服；高峰时段可能需要排队。
+  - text: 3. 非在线时间：AI 客服 7×24 小时可处理商品咨询、物流查询、售后申请等；人工需求可留言，次日上线后优先回复。
+  - text: 4. 紧急售后可在订单详情提交售后申请，或留言订单号+问题，人工上线后跟进。
+  - list:
+    - listitem: 共 1 条
+    - listitem "上一页":
+      - button "left" [disabled]:
+        - img "left":
+    - listitem "1":
+      - generic: "1"
+    - listitem "下一页":
+      - button "right" [disabled]:
+        - img "right":
+    - generic "页码":
+      - combobox "页码"
+      - generic "10 条/页"
+  - text: ©2026 深圳智简未来科技有限公司 | 官网：
+  - link "www.zhiyan.chat":
+    - /url: https://www.zhiyan.chat
+  - text: "| 联系我们："
+- img "comment":
+- generic: 测试窗
+- dialog:
+  - generic: 询问工作时间
+  - generic: 问法示例：
+  - generic: 几点在线/客服几点上班呢/你们几点上班
+  - button "×":
+    - generic: ×
+  - generic: 知识名称
+  - button "新增知识":
+    - generic: 新增知识
+  - generic: 知识优先级
+  - button "holder":
+  - generic: 人工客服在线时间与服务安排
+  - img "copy":
+  - img "delete":
+  - status
+  - generic: 知识设置
+  - generic "知识名称": "* 知识名称"
+  - textbox "* 知识名称":
+    - /placeholder: 请输入知识名称
+    - text: 人工客服在线时间与服务安排
+  - generic: 第1次知识内容
+  - generic: 回复方式
+  - radio "AI回复" [checked]
+  - generic: AI回复
+  - radio "原文回复"
+  - generic: 原文回复
+  - radio "转人工接待"
+  - generic: 转人工接待
+  - radio "登记工单"
+  - generic: 登记工单
+  - button "smile 表情":
+    - img "smile":
+    - generic: 表情
+  - button "picture 图片":
+    - img "picture":
+    - generic: 图片
+  - button "youtube 视频":
+    - img "youtube":
+    - generic: 视频
+  - button "sliders 变量":
+    - img "sliders":
+    - generic: 变量
+  - button "book 商品知识":
+    - img "book":
+    - generic: 商品知识
+  - textbox:
+    - paragraph: 1. 人工客服在线时间：每天 9:00-22:00（按店铺实际时间填写）。
+    - paragraph: 2. 在线时间内可直接发送“转人工”，系统会转接人工客服；高峰时段可能需要排队。
+    - paragraph: 3. 非在线时间：AI 客服 7×24 小时可处理商品咨询、物流查询、售后申请等；人工需求可留言，次日上线后优先回复。
+    - paragraph: 4. 紧急售后可在订单详情提交售后申请，或留言订单号+问题，人工上线后跟进。
+  - button "plus 添加第2次知识内容":
+    - img "plus":
+    - generic: 添加第2次知识内容
+  - generic: 满足条件设置
+  - generic "是否生效": "* 是否生效"
+  - switch "* 是否生效" [checked]:
+    - generic: 开
+    - generic: 关
+  - generic "关联商品": "* 关联商品"
+  - radio "全部商品" [checked]
+  - generic: 全部商品
+  - radio "指定商品"
+  - generic: 指定商品
+  - radio "指定分组"
+  - generic: 指定分组
+  - radio "商品标题"
+  - generic: 商品标题
+  - generic "订单状态": "* 订单状态"
+  - checkbox "未下单" [checked]
+  - generic: 未下单
+  - checkbox "未付款" [checked]
+  - generic: 未付款
+  - checkbox "待发货(已付款)" [checked]
+  - generic: 待发货(已付款)
+  - checkbox "待收货" [checked]
+  - generic: 待收货
+  - checkbox "未评价(已签收)" [checked]
+  - generic: 未评价(已签收)
+  - checkbox "已评价" [checked]
+  - generic: 已评价
+  - checkbox "已关闭(已取消)" [checked]
+  - generic: 已关闭(已取消)
+  - generic "生效时间": "* 生效时间"
+  - radio "长期有效" [checked]
+  - generic: 长期有效
+  - radio "指定时间段"
+  - generic: 指定时间段
+  - radio "指定时效"
+  - generic: 指定时效
+  - generic: 买家历史消息
+  - switch "买家历史消息"
+  - generic: 客服历史消息
+  - switch "客服历史消息"
+  - button "取 消":
+    - generic: 取 消
+  - button "保 存":
+    - generic: 保 存

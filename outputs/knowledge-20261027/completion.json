@@ -1,0 +1,108 @@
+{
+  "completed_on": "2026-10-27",
+  "site": "https://dev.zhiyan.chat",
+  "shop": "UI货品回归店铺B1_20260831_01",
+  "platform": "tmall",
+  "total": 10,
+  "created": 8,
+  "updated": 2,
+  "verification": "页面刷新后逐条打开并核对名称、完整正文、是否生效及AI回复",
+  "conversation_tests_run": false,
+  "notes": [
+    "保留用户提供的建议数值与括号说明；未核实为店铺实际政策",
+    "退款两场景因条件重复限制，在既有默认规则中保留原说明并补入完整新正文，改为建议名称",
+    "未配置转人工动作或新增转人工场景；未写入双场景参考回复作为额外知识"
+  ],
+  "items": [
+    {
+      "scene": "破损变质处理方案",
+      "name": "包裹/商品破损的拍照取证与赔付方案",
+      "body_matches": true,
+      "enabled": true,
+      "reply_type": "AI回复",
+      "refreshed": true,
+      "mode": "新增"
+    },
+    {
+      "scene": "投诉处理",
+      "name": "快递员/服务投诉受理与升级",
+      "body_matches": true,
+      "enabled": true,
+      "reply_type": "AI回复",
+      "refreshed": true,
+      "mode": "新增"
+    },
+    {
+      "scene": "常见付款场景说明",
+      "name": "支付方式与货到付款说明",
+      "body_matches": true,
+      "enabled": true,
+      "reply_type": "AI回复",
+      "refreshed": true,
+      "mode": "新增"
+    },
+    {
+      "scene": "花呗支付与还款",
+      "name": "花呗支付、分期与还款",
+      "body_matches": true,
+      "enabled": true,
+      "reply_type": "AI回复",
+      "refreshed": true,
+      "mode": "新增"
+    },
+    {
+      "scene": "咨询退款退货条件",
+      "name": "取消订单与已发货退款条件",
+      "body_matches": true,
+      "enabled": true,
+      "reply_type": "AI回复",
+      "refreshed": true,
+      "mode": "补充既有默认规则并保留原文"
+    },
+    {
+      "scene": "咨询退款退货流程",
+      "name": "退款流程与到账时效",
+      "body_matches": true,
+      "enabled": true,
+      "reply_type": "AI回复",
+      "refreshed": true,
+      "mode": "补充既有默认规则并保留原文"
+    },
+    {
+      "scene": "询问工作时间",
+      "name": "人工客服在线时间与服务安排",
+      "body_matches": true,
+      "enabled": true,
+      "reply_type": "AI回复",
+      "refreshed": true,
+      "mode": "新增"
+    },
+    {
+      "scene": "询问是否是机器人",
+      "name": "AI 身份说明与转人工方式",
+      "body_matches": true,
+      "enabled": true,
+      "reply_type": "AI回复",
+      "refreshed": true,
+      "mode": "新增"
+    },
+    {
+      "scene": "优惠券相关",
+      "name": "优惠券领取、使用与叠加规则",
+      "body_matches": true,
+      "enabled": true,
+      "reply_type": "AI回复",
+      "refreshed": true,
+      "mode": "新增"
+    },
+    {
+      "scene": "会员权益说明",
+      "name": "会员等级、折扣与开通说明",
+      "body_matches": true,
+      "enabled": true,
+      "reply_type": "AI回复",
+      "refreshed": true,
+      "mode": "新增"
+    }
+  ]
+}

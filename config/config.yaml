@@ -1,0 +1,29 @@
+# 全局测试配置
+env: dev
+
+environments:
+  dev:
+    base_url: "https://dev.zhiyan.chat"      # 智言客服Agent 开发环境
+  demo:
+    base_url: "https://www.saucedemo.com"    # 框架示例站
+  staging:
+    base_url: "https://staging.example.com"
+  prod:
+    base_url: "https://example.com"
+
+browser:
+  name: chromium          # chromium / firefox / webkit
+  headless: true
+  slow_mo: 0              # 毫秒，调试时可设为 100~300
+  viewport:
+    width: 1920
+    height: 1080
+  locale: zh-CN
+  timezone: Asia/Shanghai
+
+timeout:
+  default: 30000          # 默认等待超时（毫秒）
+  navigation: 30000
+
+retry:
+  rerun_failures: 1       # 失败重跑次数

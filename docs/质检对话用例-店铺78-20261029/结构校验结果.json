@@ -1,0 +1,14 @@
+{
+  "categories": 15,
+  "points": 75,
+  "cases": 225,
+  "turns_per_case": 5,
+  "total_turns": 1125,
+  "utterances": 2250,
+  "unique_case_ids": 225,
+  "unique_conversations": 225,
+  "all_points_have_three_cases": true,
+  "cases_with_business_context": 40,
+  "structural_validation": "passed",
+  "runtime_execution": "未执行；本次仅设计对话，无后台写入或实际送检"
+}

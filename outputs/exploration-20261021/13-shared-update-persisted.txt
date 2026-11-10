@@ -1,0 +1,252 @@
+- complementary:
+  - menu:
+    - menuitem "book 知识库管理" [expanded]:
+      - img "book":
+      - generic: 知识库管理
+    - menu:
+      - menuitem "商品管理":
+        - link "商品管理":
+          - /url: /product-config
+      - menuitem "商品知识库":
+        - link "商品知识库":
+          - /url: /product-knowledge
+      - menuitem "商品分组":
+        - link "商品分组":
+          - /url: /product-group
+      - menuitem "货品管理":
+        - link "货品管理":
+          - /url: /stock-config
+      - menuitem "货品知识库":
+        - link "货品知识库":
+          - /url: /stock-knowledge
+      - menuitem "店铺知识库":
+        - link "店铺知识库":
+          - /url: /shop-knowledge
+      - menuitem "场景知识库":
+        - link "场景知识库":
+          - /url: /scene
+      - menuitem "自定义知识库":
+        - link "自定义知识库":
+          - /url: /keyword
+    - menuitem "robot AI智能中心":
+      - img "robot":
+      - generic: AI智能中心
+    - menuitem "filter 策略管理":
+      - img "filter":
+      - generic: 策略管理
+    - menuitem "audit 质检中心":
+      - img "audit":
+      - generic: 质检中心
+    - menuitem "bar-chart VOC洞察分析":
+      - img "bar-chart":
+      - generic: VOC洞察分析
+    - menuitem "dashboard 数据概览":
+      - img "dashboard":
+      - generic: 数据概览
+    - menuitem "sync 设置":
+      - img "sync":
+      - generic: 设置
+    - menuitem "pay-circle 我的言值":
+      - img "pay-circle":
+      - generic: 我的言值
+    - menuitem "tags 关于我们":
+      - link "tags 关于我们":
+        - /url: /contact-us
+        - img "tags":
+        - text: 关于我们
+- banner
+- banner:
+  - img "logo"
+  - tablist:
+    - tab "货品知识库" [selected]
+  - tabpanel "货品知识库"
+  - img "heart":
+  - generic: "剩余言值: 0.0000"
+  - button "充值":
+    - generic: 充值
+  - img "search":
+  - textbox "全店铺搜索"
+  - img "file-text":
+  - generic: 使用文档
+  - img "down":
+  - combobox
+  - img "淘宝/天猫"
+  - generic "UI货品回归店铺B1_20260831_01"
+  - img "user":
+  - generic: 王景坤
+  - img "down":
+- main:
+  - textbox "请输入货品知识名称"
+  - img "search":
+  - button "download 导出知识库":
+    - img "download":
+    - generic: 导出知识库
+  - button "upload 导入知识库":
+    - img "upload":
+    - generic: 导入知识库
+  - button "file-text 操作日志":
+    - img "file-text":
+    - generic: 操作日志
+  - table:
+    - rowgroup:
+      - row "货品知识名称 货品知识描述 已配置货品数量 操作":
+        - columnheader "货品知识名称"
+        - columnheader "货品知识描述"
+        - columnheader "已配置货品数量"
+        - columnheader "操作"
+    - rowgroup:
+      - row "使用方法 用户询问产品本身的使用方式、步骤、用量、使用频率、使用时间、多久使用一次、是否清洗等具体操作，以及与其他产品之间的使用先后顺序。 2 plus 添加话术":
+        - cell "使用方法"
+        - cell "用户询问产品本身的使用方式、步骤、用量、使用频率、使用时间、多久使用一次、是否清洗等具体操作，以及与其他产品之间的使用先后顺序。"
+        - cell "2"
+        - cell "plus 添加话术":
+          - button "plus 添加话术":
+            - img "plus":
+            - generic: 添加话术
+      - row "功能效果 用户关注产品所具备的功能、作用与使用效果，包括产品基础功能、实用能力，以及效果、作用、见效时长与持续时长等相关问题。 0 plus 添加话术":
+        - cell "功能效果"
+        - cell "用户关注产品所具备的功能、作用与使用效果，包括产品基础功能、实用能力，以及效果、作用、见效时长与持续时长等相关问题。"
+        - cell "0"
+        - cell "plus 添加话术":
+          - button "plus 添加话术":
+            - img "plus":
+            - generic: 添加话术
+      - row "可用时长/次数 用户关注产品大约可以使用多长时间或多少次，如一瓶能用多久、一次用多少量、使用时长等，核心在于产品本身的消耗情况，而非效果显现时间。 0 plus 添加话术":
+        - cell "可用时长/次数"
+        - cell "用户关注产品大约可以使用多长时间或多少次，如一瓶能用多久、一次用多少量、使用时长等，核心在于产品本身的消耗情况，而非效果显现时间。"
+        - cell "0"
+        - cell "plus 添加话术":
+          - button "plus 添加话术":
+            - img "plus":
+            - generic: 添加话术
+      - row "成分表 用户关注产品所含全部化学或天然成分，用于了解配方组成、配料构成等信息，通常对应官方公布的成分表或配料清单。 0 plus 添加话术":
+        - cell "成分表"
+        - cell "用户关注产品所含全部化学或天然成分，用于了解配方组成、配料构成等信息，通常对应官方公布的成分表或配料清单。"
+        - cell "0"
+        - cell "plus 添加话术":
+          - button "plus 添加话术":
+            - img "plus":
+            - generic: 添加话术
+      - row "适用部位 说明产品适用于身体的具体部位，如面部、眼部、唇部、头皮、身体肌肤等。 0 plus 添加话术":
+        - cell "适用部位"
+        - cell "说明产品适用于身体的具体部位，如面部、眼部、唇部、头皮、身体肌肤等。"
+        - cell "0"
+        - cell "plus 添加话术":
+          - button "plus 添加话术":
+            - img "plus":
+            - generic: 添加话术
+      - row "香味 描述产品的香味类型和特点，如花香、果香、木香、清香、淡香、浓香等，帮助用户了解产品的气味属性。 0 plus 添加话术":
+        - cell "香味"
+        - cell "描述产品的香味类型和特点，如花香、果香、木香、清香、淡香、浓香等，帮助用户了解产品的气味属性。"
+        - cell "0"
+        - cell "plus 添加话术":
+          - button "plus 添加话术":
+            - img "plus":
+            - generic: 添加话术
+      - row "生产日期保质期 说明用户关注产品的生产日期与保质期（质保期）信息，包括生产时间、是否为近期生产、保质/质保期时长等，帮助判断产品是否临期、是否新鲜、是否还在质保期内等。 0 plus 添加话术":
+        - cell "生产日期保质期"
+        - cell "说明用户关注产品的生产日期与保质期（质保期）信息，包括生产时间、是否为近期生产、保质/质保期时长等，帮助判断产品是否临期、是否新鲜、是否还在质保期内等。"
+        - cell "0"
+        - cell "plus 添加话术":
+          - button "plus 添加话术":
+            - img "plus":
+            - generic: 添加话术
+      - row "卖点 展示产品最突出的特点或核心优势，用于吸引消费者关注和购买。 0 plus 添加话术":
+        - cell "卖点"
+        - cell "展示产品最突出的特点或核心优势，用于吸引消费者关注和购买。"
+        - cell "0"
+        - cell "plus 添加话术":
+          - button "plus 添加话术":
+            - img "plus":
+            - generic: 添加话术
+      - row "产品规格说明 用户咨询多个规格、型号、成分、颜色、组合、套装赠品等内容的区别、选择建议或赠品分配情况，通常涉及具体需求、人群特征、价格对比或优惠配置。 0 plus 添加话术":
+        - cell "产品规格说明"
+        - cell "用户咨询多个规格、型号、成分、颜色、组合、套装赠品等内容的区别、选择建议或赠品分配情况，通常涉及具体需求、人群特征、价格对比或优惠配置。"
+        - cell "0"
+        - cell "plus 添加话术":
+          - button "plus 添加话术":
+            - img "plus":
+            - generic: 添加话术
+      - row "注意事项 列出使用产品时需要注意的事项，如禁忌、避光、避免误食、能不能晒太阳等。 0 plus 添加话术":
+        - cell "注意事项"
+        - cell "列出使用产品时需要注意的事项，如禁忌、避光、避免误食、能不能晒太阳等。"
+        - cell "0"
+        - cell "plus 添加话术":
+          - button "plus 添加话术":
+            - img "plus":
+            - generic: 添加话术
+  - list:
+    - listitem: 共 16 项
+    - listitem "上一页":
+      - button "left" [disabled]:
+        - img "left":
+    - listitem "1":
+      - generic: "1"
+    - listitem "2":
+      - generic: "2"
+    - listitem "下一页":
+      - button "right":
+        - img "right":
+    - generic "页码":
+      - combobox "页码"
+      - generic "10 条/页"
+    - text: 跳至
+    - textbox "页"
+    - text: 页
+  - text: ©2026 深圳智简未来科技有限公司 | 官网：
+  - link "www.zhiyan.chat":
+    - /url: https://www.zhiyan.chat
+  - text: "| 联系我们："
+- img "comment":
+- generic: 测试窗
+- dialog "编辑货品知识话术":
+  - button "关闭":
+    - img "close":
+  - generic: 编辑货品知识话术
+  - generic: 使用方法
+  - text: "货品知识描述:"
+  - text: 用户询问产品本身的使用方式、步骤、用量、使用频率、使用时间、多久使用一次、是否清洗等具体操作，以及与其他产品之间的使用先后顺序。
+  - searchbox "货品标题/编码"
+  - button "search":
+    - img "search":
+  - combobox
+  - generic "全部"
+  - table:
+    - rowgroup:
+      - row "货品 知识内容":
+        - columnheader "货品"
+        - columnheader "知识内容"
+    - rowgroup:
+      - row "UIAUTO_20261021共享保温杯货品 货品编码：UIAUTO_20261021_STOCK02 点击复制 共享货品通用使用步骤：所有关联保温杯首次使用前用温水冲洗内胆，注水后拧紧杯盖。共享识别码B1SHARED1021。更新回归步骤：清洗后将杯盖打开静置五分钟再注水。更新识别码B1SHAREDUPDATE1021。 edit":
+        - cell "UIAUTO_20261021共享保温杯货品 货品编码：UIAUTO_20261021_STOCK02 点击复制":
+          - generic: UIAUTO_20261021共享保温杯货品
+          - generic: 货品编码：UIAUTO_20261021_STOCK02
+          - button "点击复制":
+            - img "copy":
+        - cell "共享货品通用使用步骤：所有关联保温杯首次使用前用温水冲洗内胆，注水后拧紧杯盖。共享识别码B1SHARED1021。更新回归步骤：清洗后将杯盖打开静置五分钟再注水。更新识别码B1SHAREDUPDATE1021。 edit":
+          - generic: 共享货品通用使用步骤：所有关联保温杯首次使用前用温水冲洗内胆，注水后拧紧杯盖。共享识别码B1SHARED1021。更新回归步骤：清洗后将杯盖打开静置五分钟再注水。更新识别码B1SHAREDUPDATE1021。
+          - button "edit":
+            - img "edit":
+      - row "UIAUTO_20261020保温杯货品_已编辑 货品编码：UIAUTO_20261020_STOCK01 点击复制 UIAUTO_20261020货品使用方法：首次使用请用温水清洗，注水后拧紧杯盖。测试识别码：B1STOCK1020。 edit":
+        - cell "UIAUTO_20261020保温杯货品_已编辑 货品编码：UIAUTO_20261020_STOCK01 点击复制":
+          - generic: UIAUTO_20261020保温杯货品_已编辑
+          - generic: 货品编码：UIAUTO_20261020_STOCK01
+          - button "点击复制":
+            - img "copy":
+        - cell "UIAUTO_20261020货品使用方法：首次使用请用温水清洗，注水后拧紧杯盖。测试识别码：B1STOCK1020。 edit":
+          - generic: UIAUTO_20261020货品使用方法：首次使用请用温水清洗，注水后拧紧杯盖。测试识别码：B1STOCK1020。
+          - button "edit":
+            - img "edit":
+  - list:
+    - listitem: 共 2 项
+    - listitem "上一页":
+      - button "left" [disabled]:
+        - img "left":
+    - listitem "1":
+      - generic: "1"
+    - listitem "下一页":
+      - button "right" [disabled]:
+        - img "right":
+    - generic "页码":
+      - combobox "页码"
+      - generic "10 条/页"
