@@ -1,0 +1,173 @@
+{
+  "schema_version": 1,
+  "site": "https://dev.zhiyan.chat",
+  "default_shop": "B1",
+  "shop_name": "UI货品回归店铺B1_20260831_01",
+  "rule": "临时数据必须自建自毁。前缀 UIAUTO_CRUD_。套件结束按前缀搜索条数必须为0。禁止删除永久夹具（见 permanent.json do_not_delete）。失败中断也要 teardown。",
+  "volume": 20,
+  "batches": [
+    {
+      "id": "CRUD-STOCK",
+      "page": "/stock-config",
+      "entity": "货品",
+      "prefix": "UIAUTO_CRUD_STOCK_",
+      "count": 20,
+      "create": {
+        "code": "UIAUTO_CRUD_STOCK_{nn}",
+        "title": "UIAUTO_CRUD货品{nn}"
+      },
+      "update_field": "title",
+      "update_to": "UIAUTO_CRUD货品{nn}_已改",
+      "delete": "行内删除确认；页面无批量删时循环20次",
+      "assert_after_create": "按前缀搜索恰好20条",
+      "assert_after_delete": "按前缀搜索0条"
+    },
+    {
+      "id": "CRUD-PRODUCT",
+      "page": "/product-config",
+      "entity": "商品",
+      "prefix": "UIAUTO_CRUD_PROD_",
+      "count": 20,
+      "create": {
+        "id": "91020990{nn}",
+        "title": "UIAUTO_CRUD商品{nn}",
+        "stock": "先建一批CRUD货品或复用UIAUTO_CRUD_STOCK_{nn}",
+        "status": "上架",
+        "recommend": "否"
+      },
+      "note": "批量操作菜单是导入导出属性和状态，不是勾选批量删。20条删除用行内删除循环。",
+      "do_not_touch": [
+        "9102026102001",
+        "9102026102101",
+        "9102026102102"
+      ],
+      "delete": "批量操作菜单是导入导出属性和状态，不是勾选批量删。20条删除用行内删除循环。",
+      "assert_after_delete": "按前缀搜索0条（商品）"
+    },
+    {
+      "id": "CRUD-ATTR",
+      "page": "/product-config",
+      "entity": "商品属性",
+      "host_product": "选一条CRUD商品，不要用甲乙共享杯",
+      "prefix": "UIAUTO_CRUD_ATTR_",
+      "count": 20,
+      "create": {
+        "name": "UIAUTO_CRUD属性{nn}",
+        "value": "值{nn}"
+      },
+      "delete": "属性弹层内行内删除，循环20次；宿主商品本身保留",
+      "assert_after_create": "宿主商品属性弹层内该前缀恰好20条",
+      "assert_after_delete": "宿主商品属性弹层内该前缀0条"
+    },
+    {
+      "id": "CRUD-GROUP",
+      "page": "/product-group",
+      "entity": "商品分组",
+      "prefix": "UIAUTO_CRUD_GROUP_",
+      "count": 20,
+      "create": {
+        "name": "UIAUTO_CRUD分组{nn}"
+      },
+      "bind": "只绑CRUD测试商品，不绑永久夹具",
+      "delete": "行内删除气泡确认，循环20次",
+      "assert_after_delete": "按前缀搜索0条（商品分组）"
+    },
+    {
+      "id": "CRUD-SHOP-KB",
+      "page": "/shop-knowledge",
+      "entity": "店铺知识",
+      "prefix": "UIAUTO_CRUD_SKB_",
+      "count": 20,
+      "create": {
+        "name": "UIAUTO_CRUD店铺知识{nn}",
+        "content": "CRUD临时知识{nn}，识别码CRUDKB{nn}。"
+      },
+      "delete": "行内删除，循环20次",
+      "assert_after_delete": "按前缀搜索0条（店铺知识）"
+    },
+    {
+      "id": "CRUD-SCENE-KB",
+      "page": "/scene",
+      "entity": "场景知识",
+      "prefix": "UIAUTO_CRUD_SCENE_",
+      "count": 20,
+      "note": "若页面按场景挂知识，20条挂到测试场景下，测完删知识不删系统默认场景。",
+      "delete": "场景内知识行内删除，循环20次；系统场景保留",
+      "assert_after_delete": "按前缀搜索0条（场景知识）"
+    },
+    {
+      "id": "CRUD-KEYWORD",
+      "page": "/keyword",
+      "entity": "自定义知识",
+      "prefix": "UIAUTO_CRUD_KEY_",
+      "count": 20,
+      "create": {
+        "keyword": "CRUD暗号{nn}",
+        "reply": "UIAUTO_CRUD自定义原文{nn}"
+      },
+      "delete": "场景内知识行内删除，循环20次；场景本身保留",
+      "assert_after_delete": "按前缀搜索0条（自定义知识）"
+    },
+    {
+      "id": "CRUD-VARIABLE",
+      "page": "/variables",
+      "entity": "变量",
+      "prefix": "UIAUTO_CRUD_VAR_",
+      "count": 20,
+      "create": {
+        "name": "UIAUTO_CRUD变量{nn}",
+        "scope": "当前店铺",
+        "value": "CRUDVAL{nn}"
+      },
+      "delete": "行内删除确认，循环20次",
+      "assert_after_delete": "按前缀搜索0条（变量）"
+    },
+    {
+      "id": "CRUD-REPLACE",
+      "page": "/replace-word",
+      "entity": "替换词",
+      "prefix": "UIAUTO_CRUD_REP_",
+      "count": 20,
+      "create": {
+        "keyword": "CRUDKEY{nn}",
+        "replacement": "CRUDREP{nn}",
+        "enabled": false
+      },
+      "do_not_touch": "B1KEY1020 永久规则只停用，不删",
+      "delete": "行内删除气泡确认，循环20次；永久规则只停用",
+      "assert_after_delete": "按前缀搜索0条（替换词）"
+    },
+    {
+      "id": "CRUD-GREETING",
+      "page": "/greeting",
+      "entity": "欢迎语",
+      "prefix": "UIAUTO_CRUD_HI_",
+      "count": 20,
+      "create": {
+        "name": "UIAUTO_CRUD欢迎语{nn}",
+        "enabled": false
+      },
+      "delete": "行内删除气泡确认，循环20次",
+      "assert_after_delete": "按前缀搜索0条（欢迎语）"
+    },
+    {
+      "id": "CRUD-TAG",
+      "page": "/tag",
+      "entity": "自定义标签",
+      "prefix": "UIAUTO_CRUD_TAG_",
+      "count": 20,
+      "create": {
+        "category": "UIAUTO_CRUD分类",
+        "name": "UIAUTO_CRUD标签{nn}"
+      },
+      "note": "官方标签只读。先建1个自定义分类，再在分类下建20个标签，测完先删标签再删分类。",
+      "delete": "先删20个标签，再删测试分类",
+      "assert_after_delete": "按前缀搜索0条（自定义标签）"
+    }
+  ],
+  "teardown": {
+    "search_each_prefix": true,
+    "expected_count": 0,
+    "on_failure": "即使用例失败也清本批前缀，避免污染测试窗检索"
+  }
+}

@@ -1,18 +1,9 @@
-"""全局 fixtures：浏览器上下文、配置注入、失败截图附加到 allure。"""
+"""全局 fixtures：浏览器、配置注入、失败截图附加到 allure。"""
 import allure
 import pytest
 from playwright.sync_api import Browser
 
 from config.settings import load_config
-
-
-def pytest_addoption(parser):
-    group = parser.getgroup("zhiyan-smoke")
-    group.addoption("--run-zhiyan-smoke", action="store_true", help="显式启用智言只读冒烟")
-    group.addoption("--smoke-module", default="", help="只执行模块，可逗号分隔")
-    group.addoption("--smoke-id", default="", help="只执行功能ID，可逗号分隔")
-    group.addoption("--smoke-evidence", action="store_true", help="保留失败业务页面截图/trace（可能含业务信息）")
-    parser.addoption("--run-b1-regression", action="store_true", help="显式启用B1样本只读业务断言")
 
 
 @pytest.fixture(scope="session")
@@ -56,7 +47,7 @@ def base_url(config) -> str:
 
 @pytest.hookimpl(tryfirst=True, hookwrapper=True)
 def pytest_runtest_makereport(item, call):
-    """用例失败时把截图和 trace 附加到 allure 报告。"""
+    """用例失败时把截图附加到 allure 报告。"""
     outcome = yield
     report = outcome.get_result()
 

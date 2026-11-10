@@ -1,0 +1,224 @@
+{
+  "schema_version": 1,
+  "site": "https://dev.zhiyan.chat",
+  "naming": "永久夹具使用历史 UIAUTO_ 前缀；禁止删除。CRUD 20 条用 UIAUTO_CRUD_ 前缀，用完即删。",
+  "do_not_delete": [
+    "UIAUTO_20261020_STOCK01",
+    "UIAUTO_20261021_STOCK02",
+    "9102026102001",
+    "9102026102101",
+    "9102026102102"
+  ],
+  "shops": {
+    "B1": {
+      "shop_id": 740,
+      "shop_name": "UI货品回归店铺B1_20260831_01",
+      "platform": "tmall",
+      "stocks": [
+        {
+          "code": "UIAUTO_20261020_STOCK01",
+          "title": "UIAUTO_20261020保温杯货品_已编辑",
+          "role": "老数据查改，不删",
+          "knowledge_name": "使用方法",
+          "knowledge": "使用前温水清洗，检查密封圈；禁止放入微波炉。识别码B1STOCK1020。",
+          "marker": "B1STOCK1020"
+        },
+        {
+          "code": "UIAUTO_20261021_STOCK02",
+          "title": "UIAUTO_20261021共享保温杯货品",
+          "role": "甲乙共享货品，不删",
+          "knowledge_name": "使用方法",
+          "knowledge": "共享货品通用使用步骤：所有关联保温杯首次使用前用温水冲洗内胆，注水后拧紧杯盖。共享识别码B1SHARED1021。",
+          "marker": "B1SHARED1021",
+          "must_not_contain": ["B1SHAREDUPDATE1021", "五分钟"]
+        }
+      ],
+      "products": [
+        {
+          "id": "9102026102001",
+          "title": "UIAUTO_20261020保温杯商品",
+          "stock": "UIAUTO_20261020_STOCK01",
+          "status": "上架",
+          "recommend": "是",
+          "role": "下架/恢复推荐对照，不删",
+          "attribute_name": "UIAUTO容量",
+          "attribute_value": "500毫升；食品级304不锈钢；测试识别码B1ATTR1020",
+          "knowledge_name": "使用方法",
+          "knowledge_marker": "B1PRODUCT1020",
+          "knowledge": "使用前清洗并检查密封圈，禁止放入微波炉。识别码B1PRODUCT1020。"
+        },
+        {
+          "id": "9102026102101",
+          "title": "UIAUTO_20261021共享杯甲商品",
+          "name": "共享杯甲",
+          "stock": "UIAUTO_20261021_STOCK02",
+          "status": "上架",
+          "recommend": "是",
+          "role": "共享货品甲，不删",
+          "marker": "B1PA1021",
+          "operation": "按住蓝色按钮三秒",
+          "other_marker": "B1PB1021"
+        },
+        {
+          "id": "9102026102102",
+          "title": "UIAUTO_20261021共享杯乙商品",
+          "name": "共享杯乙",
+          "stock": "UIAUTO_20261021_STOCK02",
+          "status": "上架",
+          "recommend": "是",
+          "role": "共享货品乙，不删",
+          "marker": "B1PB1021",
+          "operation": "旋转绿色杯盖两圈",
+          "other_marker": "B1PA1021"
+        }
+      ],
+      "product_group": {
+        "name": "UIAUTO_20261020保温杯分组",
+        "product_count": 1,
+        "product_id": "9102026102001"
+      },
+      "shop_knowledge": [
+        {
+          "name": "UIAUTO礼盒服务",
+          "scope": "指定商品9102026102001",
+          "marker": "蓝鲸1020",
+          "content": "该商品提供蓝色礼盒包装，礼盒暗号为蓝鲸1020，下单备注礼盒即可。"
+        }
+      ],
+      "custom_knowledge": [
+        {
+          "scene": "蓝鲸暗号",
+          "name": "UIAUTO暗号验证",
+          "keyword": "蓝鲸暗号",
+          "exact_reply": "UIAUTO关键词原文回复成功，识别码B1KEY1020。",
+          "marker": "B1KEY1020"
+        }
+      ],
+      "scene_knowledge": [
+        {
+          "case": "ms09",
+          "scene": "破损变质处理方案",
+          "name": "包裹/商品破损的拍照取证与赔付方案",
+          "body": "1. 收到包裹破损或商品破损、变质时，先保留包装和商品，拍照留证：外包装六面、快递面单、破损部位特写、商品整体及数量。\n2. 在订单详情 → 申请售后 → 选择“破损/少件/质量问题”，上传照片并说明情况；建议签收后 48 小时内提交。\n3. 处理方案：影响使用的支持补发、退货退款或退款；轻微破损可协商补偿。破损商品通常无需寄回，具体以售后审核为准。\n4. 物流运输导致的破损由商家承担补发/退款责任，并由商家向快递公司索赔，不需要买家自行找快递理赔。\n5. 若同时涉及快递员服务问题，可转人工客诉组一并处理。"
+        },
+        {
+          "case": "ms09",
+          "scene": "投诉处理",
+          "name": "快递员/服务投诉受理与升级",
+          "body": "1. 受理范围：快递员服务态度、配送延误、擅自放件/丢件、商家服务态度、售后处理不满等。\n2. 先安抚致歉，记录订单号、快递单号、发生时间、地点、经过和用户诉求（道歉/赔偿/换人配送/退款等）。\n3. 涉及快递员态度问题，由店铺向快递公司发起投诉工单，不要求买家自行联系快递。\n4. 承诺核实与反馈时效：24 小时内核实、48 小时内反馈（按店铺实际承诺调整）；紧急或升级诉求转人工客诉组。\n5. 处理结果通过平台消息或电话同步；用户不接受可引导申请平台介入。"
+        },
+        {
+          "case": "ms11",
+          "scene": "常见付款场景说明",
+          "name": "支付方式与货到付款说明",
+          "body": "1. 店铺支持的支付方式以提交订单页/收银台展示为准，常见为支付宝、花呗、银行卡等线上支付。\n2. 若提交订单页没有“货到付款”选项，说明该商品/地区暂不支持货到付款，请选择线上支付；支付成功后按页面时效发货。\n3. 未付款订单超时会自动关闭，可重新下单；拍错/买多可在未发货前取消或联系客服；重复付款、付款失败可提供订单号协助核实。\n4. 合并付款、先用后付等以平台页面是否展示为准。"
+        },
+        {
+          "case": "ms11",
+          "scene": "花呗支付与还款",
+          "name": "花呗支付、分期与还款",
+          "body": "1. 是否支持花呗及分期，以提交订单页/收银台是否显示花呗选项为准；显示即可选择花呗支付。\n2. 花呗额度、能否分期、期数和费率由支付宝根据账户情况评估，页面会展示手续费/利息。\n3. 还款按支付宝花呗账单规则执行，需在还款日前还款；店铺不代收还款，也不提供提额服务。\n4. 退款按原支付渠道退回花呗，到账时间以支付宝为准；分期订单退款后的手续费处理以支付宝规则为准。\n5. 收银台没有花呗选项，可能是商品/账户暂不支持或额度不足，可更换其他支付方式。"
+        },
+        {
+          "case": "ms13",
+          "scene": "咨询退款退货条件",
+          "name": "取消订单与已发货退款条件"
+        },
+        {
+          "case": "ms13",
+          "scene": "咨询退款退货流程",
+          "name": "退款流程与到账时效"
+        },
+        {
+          "case": "ms14",
+          "scene": "询问工作时间",
+          "name": "人工客服在线时间与服务安排"
+        },
+        {
+          "case": "ms14",
+          "scene": "询问是否是机器人",
+          "name": "AI 身份说明与转人工方式"
+        },
+        {
+          "case": "ms15",
+          "scene": "优惠券相关",
+          "name": "优惠券领取、使用与叠加规则"
+        },
+        {
+          "case": "ms15",
+          "scene": "会员权益说明",
+          "name": "会员等级、折扣与开通说明"
+        }
+      ],
+      "variable": {
+        "name": "UIAUTO礼盒暗号",
+        "scope": "当前店铺",
+        "value": "蓝鲸1020"
+      },
+      "replace_word": {
+        "keyword": "B1KEY1020",
+        "replacement": "B1REPLACE1020",
+        "enabled": false,
+        "restore": "回归结束必须停用，不得删除规则"
+      },
+      "greeting": {
+        "name": "UIAUTO_20261020欢迎语草稿",
+        "enabled": false
+      },
+      "follow_task": {
+        "name": "UIAUTO_20261020跟单草稿",
+        "enabled": false
+      }
+    },
+    "A1": {
+      "shop_id": 738,
+      "shop_name": "UI货品回归店铺A1_20260831_01",
+      "platform": "tmall",
+      "role": "同平台隔离探针，内容必须与B1不同",
+      "stock": {
+        "code": "UIAUTO_A1_STOCK01",
+        "title": "UIAUTO_A1隔离货品",
+        "knowledge": "A1天猫隔离货品使用步骤。识别码A1PROBE738。"
+      },
+      "product": {
+        "id": "9102026107381",
+        "title": "UIAUTO_A1隔离商品",
+        "stock": "UIAUTO_A1_STOCK01",
+        "status": "上架",
+        "recommend": "是",
+        "marker": "A1PA738"
+      },
+      "shop_knowledge": {
+        "name": "UIAUTO_A1店铺探针",
+        "content": "本条只属于A1天猫店，识别码A1SHOP738。B1测试窗不应答出该识别码。"
+      }
+    },
+    "A2": {
+      "shop_id": 739,
+      "shop_name": "UI货品回归店铺A2_20260831_01",
+      "platform": "pdd",
+      "role": "跨平台隔离探针，内容必须与B1、A1不同",
+      "stock": {
+        "code": "UIAUTO_A2_STOCK01",
+        "title": "UIAUTO_A2隔离货品",
+        "knowledge": "A2拼多多隔离货品使用步骤。识别码A2PROBE739。"
+      },
+      "product": {
+        "id": "9102026107391",
+        "title": "UIAUTO_A2隔离商品",
+        "stock": "UIAUTO_A2_STOCK01",
+        "status": "上架",
+        "recommend": "是",
+        "marker": "A2PA739"
+      },
+      "shop_knowledge": {
+        "name": "UIAUTO_A2店铺探针",
+        "content": "本条只属于A2拼多多店，识别码A2SHOP739。B1测试窗不应答出该识别码。"
+      }
+    }
+  },
+  "seed_status": {
+    "B1_historical": "已在开发站布置，回归前做巡检，缺了再补，不要重建同名记录。",
+    "A1_A2_probes": "仓库已定义，开发站若尚未创建，布置时只在对应店铺新建，禁止写进B1。"
+  }
+}

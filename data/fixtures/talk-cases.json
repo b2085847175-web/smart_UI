@@ -1,0 +1,126 @@
+{
+  "schema_version": 1,
+  "site": "https://dev.zhiyan.chat",
+  "shop": "B1",
+  "shop_name": "UI货品回归店铺B1_20260831_01",
+  "rule": "每条使用新会话。只断言本轮新回复和该条消息的知识来源。不要用整段历史聊天判过。发消息前先按 permanent.json 做夹具巡检。",
+  "preflight": [
+    "当前选中店是B1，不是A1/A2",
+    "甲乙上架且推荐是，货品STOCK02知识可读取且不含五分钟",
+    "原商品9102026102001上架且推荐是（缺陷复测前再按步骤改状态）",
+    "自定义蓝鲸暗号、礼盒店铺知识、场景双意图知识均存在",
+    "替换词B1KEY1020处于停用"
+  ],
+  "cases": [
+    {
+      "id": "TALK-01",
+      "name": "自定义知识原文",
+      "send_product": false,
+      "input": "蓝鲸暗号",
+      "expect_reply_contains": ["UIAUTO关键词原文回复成功", "B1KEY1020"],
+      "expect_source": "自定义知识库 / 蓝鲸暗号 / UIAUTO暗号验证",
+      "must_not_contain": ["B1REPLACE1020"]
+    },
+    {
+      "id": "TALK-02",
+      "name": "商品规格来自属性",
+      "send_product": "9102026102001",
+      "input": "这个杯子容量和材质是什么？",
+      "expect_reply_contains": ["500毫升", "304"],
+      "expect_source_contains": "9102026102001"
+    },
+    {
+      "id": "TALK-03",
+      "name": "使用方法来自商品或货品知识",
+      "send_product": "9102026102001",
+      "input": "这个保温杯怎么使用，可以放微波炉吗？",
+      "expect_reply_contains": ["微波炉"],
+      "expect_source_contains": "使用方法"
+    },
+    {
+      "id": "TALK-04",
+      "name": "店铺礼盒知识限定商品",
+      "send_product": "9102026102001",
+      "input": "保温杯有礼盒包装吗，礼盒暗号是什么？",
+      "expect_reply_contains": ["蓝鲸1020"],
+      "expect_source_contains": "店铺知识库"
+    },
+    {
+      "id": "TALK-05",
+      "name": "甲共享货品不串乙",
+      "send_product": "9102026102101",
+      "input": "请完整说明清洗步骤，以及这个杯子的专属操作。",
+      "expect_reply_contains": ["温水", "蓝色按钮", "B1PA1021"],
+      "must_not_contain": ["B1PB1021", "绿色杯盖", "A1PROBE738", "A2PROBE739"]
+    },
+    {
+      "id": "TALK-06",
+      "name": "乙共享货品不串甲",
+      "send_product": "9102026102102",
+      "input": "请完整说明清洗步骤，以及这个杯子的专属操作。",
+      "expect_reply_contains": ["温水", "绿色杯盖", "B1PB1021"],
+      "must_not_contain": ["B1PA1021", "蓝色按钮", "A1PROBE738", "A2PROBE739"]
+    },
+    {
+      "id": "TALK-07",
+      "name": "下架后不再推荐仍可咨询",
+      "mutate": "临时下架9102026102001，保存并刷新后再测，测完恢复上架且推荐是",
+      "sessions": [
+        {
+          "input": "我想买保温杯，请推荐店内在售的杯子，并提供可以购买的商品链接。",
+          "send_product": false,
+          "expect": "候选和链接都不含9102026102001"
+        },
+        {
+          "send_product": "9102026102001",
+          "input": "这个下架的杯子怎么清洗，可以放微波炉吗？",
+          "expect_reply_contains": ["清洗"],
+          "expect": "仍可咨询，来源仍是该商品"
+        }
+      ]
+    },
+    {
+      "id": "TALK-08",
+      "name": "推荐品类与链接一致",
+      "bug": "B1-ISSUE-001",
+      "input": "我想买保温杯，请推荐店内在售的杯子，并提供可以购买的商品链接。",
+      "expect": "正文品类、链接商品ID、知识来源商品一致；不能介绍粉底液却链到保温杯"
+    },
+    {
+      "id": "TALK-09",
+      "name": "恢复上架后状态描述一致",
+      "bug": "B1-ISSUE-002",
+      "mutate": "下架再恢复9102026102001上架/推荐是，记录等待秒数后全新会话提问",
+      "input": "我想买保温杯，请推荐店内在售的杯子，并提供可以购买的商品链接。",
+      "expect": "已上架则不要声称下架或没有购买链接"
+    },
+    {
+      "id": "TALK-10",
+      "name": "双意图投诉加破损",
+      "input": "快递员态度很差，我要投诉。另外收到的包裹破损了，这种情况怎么赔？",
+      "expect_sources": ["破损变质处理方案", "投诉处理"],
+      "note": "内容覆盖和来源命中分开记"
+    },
+    {
+      "id": "TALK-11",
+      "name": "B1不得串出A1/A2探针",
+      "send_product": "9102026102101",
+      "input": "这个杯子怎么用？",
+      "must_not_contain": ["A1PROBE738", "A1SHOP738", "A1PA738", "A2PROBE739", "A2SHOP739", "A2PA739"]
+    }
+  ],
+  "isolation_talk": [
+    {
+      "shop": "A1",
+      "input": "隔离探针怎么用？",
+      "expect_contains": ["A1PROBE738"],
+      "must_not_contain": ["B1SHARED1021", "B1PA1021", "A2PROBE739"]
+    },
+    {
+      "shop": "A2",
+      "input": "隔离探针怎么用？",
+      "expect_contains": ["A2PROBE739"],
+      "must_not_contain": ["B1SHARED1021", "B1PA1021", "A1PROBE738"]
+    }
+  ]
+}

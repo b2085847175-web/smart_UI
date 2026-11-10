@@ -1,0 +1,49 @@
+{
+  "schema_version": 1,
+  "site": "https://dev.zhiyan.chat",
+  "rule": "自动化与手工回归只允许进入下列三家 UI 开头店铺；对不上名称或 ID 立即停止。禁止进入儒意官方旗舰店、店铺78及其他非白名单店。",
+  "default_shop_id": 740,
+  "shops": [
+    {
+      "id": 740,
+      "key": "B1",
+      "name": "UI货品回归店铺B1_20260831_01",
+      "platform": "tmall",
+      "platform_label": "淘宝/天猫",
+      "role": "主回归店",
+      "use_for": [
+        "永久夹具",
+        "店内CRUD",
+        "20条自建自毁",
+        "测试窗对话",
+        "质检与统计对照"
+      ]
+    },
+    {
+      "id": 738,
+      "key": "A1",
+      "name": "UI货品回归店铺A1_20260831_01",
+      "platform": "tmall",
+      "platform_label": "淘宝/天猫",
+      "role": "同平台隔离对照",
+      "use_for": [
+        "隔离探针",
+        "授权授撤",
+        "跨店不同串知识"
+      ]
+    },
+    {
+      "id": 739,
+      "key": "A2",
+      "name": "UI货品回归店铺A2_20260831_01",
+      "platform": "pdd",
+      "platform_label": "拼多多",
+      "role": "跨平台隔离对照",
+      "use_for": [
+        "隔离探针",
+        "授权授撤",
+        "平台差异抽查"
+      ]
+    }
+  ]
+}
